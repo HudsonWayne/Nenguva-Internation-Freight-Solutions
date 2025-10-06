@@ -91,13 +91,12 @@ export default function HeroSection() {
 
         {/* Form */}
         <form className="p-6 grid sm:grid-cols-4 gap-4 items-end">
-          {/* Both UK and International show same form */}
           {/* Collect From */}
           <div>
             <label className="block text-sm font-semibold mb-1">
               Collect from
             </label>
-            <select className="w-full border border-gray-300 px-3 py-2">
+            <select className="w-full border border-gray-300 px-3 py-2" value={activeTab === "international" ? "United Kingdom" : undefined}>
               {countries.map((country) => (
                 <option key={country}>{country}</option>
               ))}
