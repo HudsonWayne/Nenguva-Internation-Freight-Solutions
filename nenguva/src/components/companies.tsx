@@ -17,11 +17,12 @@ export default function Home() {
         Send your parcel with trusted delivery companies
       </h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+      {/* Horizontal scrollable row */}
+      <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center items-center mb-12 overflow-x-auto px-4">
         {deliveryCompanies.map((company, idx) => (
           <div
             key={idx}
-            className="w-36 h-36 flex items-center justify-center bg-gray-50 shadow-sm rounded-md"
+            className="w-36 h-36 flex items-center justify-center bg-gray-50 shadow-sm rounded-md flex-shrink-0"
           >
             <Image
               src={company.logo}
