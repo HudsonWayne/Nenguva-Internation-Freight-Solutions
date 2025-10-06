@@ -1,15 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 export default function HeroSection() {
   const [activeTab, setActiveTab] = useState("uk");
 
   return (
-    <section className="relative bg-gradient-to-br from-purple-700 to-purple-800 text-white py-10 px-6 rounded-3xl mx-auto mt-8 max-w-6xl shadow-xl overflow-hidden">
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        {/* Left Side */}
+    <section className="relative w-full bg-gradient-to-br from-purple-700 to-purple-800 text-white py-10 px-6 shadow-xl overflow-hidden">
+      <div className="text-center max-w-4xl mx-auto">
+        {/* Left Side (Text content centered) */}
         <div>
           <h1 className="text-4xl font-bold leading-tight mb-4">
             Compare and book <br />
@@ -19,15 +18,15 @@ export default function HeroSection() {
           </h1>
 
           {/* Watch video button */}
-          <button className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition px-4 py-2 rounded-full mt-4">
-            <div className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full">
+          <button className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 transition px-4 py-2 mt-4">
+            <div className="bg-red-500 w-6 h-6 flex items-center justify-center">
               ▶
             </div>
             <span>Watch our video</span>
           </button>
 
           {/* Trustpilot Section */}
-          <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-2">
             <div className="flex items-center">
               <span className="text-sm mr-2">★ Trustpilot</span>
               <div className="flex">
@@ -51,26 +50,15 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-
-        {/* Right Side (Monkey image) */}
-        <div className="relative flex justify-center">
-          <Image
-            src="/monkey.png"
-            alt="Monkey Mascot"
-            width={300}
-            height={300}
-            className="drop-shadow-lg"
-          />
-        </div>
       </div>
 
       {/* Quote Form */}
-      <div className="bg-white rounded-2xl text-gray-800 mt-10 shadow-lg">
+      <div className="bg-white text-gray-800 mt-10 shadow-lg max-w-6xl mx-auto">
         {/* Tabs */}
         <div className="flex">
           <button
             onClick={() => setActiveTab("uk")}
-            className={`w-1/2 py-3 text-lg font-semibold rounded-t-2xl ${
+            className={`w-1/2 py-3 text-lg font-semibold ${
               activeTab === "uk"
                 ? "bg-green-500 text-white"
                 : "bg-gray-900 text-white"
@@ -80,7 +68,7 @@ export default function HeroSection() {
           </button>
           <button
             onClick={() => setActiveTab("international")}
-            className={`w-1/2 py-3 text-lg font-semibold rounded-t-2xl ${
+            className={`w-1/2 py-3 text-lg font-semibold ${
               activeTab === "international"
                 ? "bg-green-500 text-white"
                 : "bg-gray-900 text-white"
@@ -96,7 +84,7 @@ export default function HeroSection() {
             <label className="block text-sm font-semibold mb-1">
               Collect from
             </label>
-            <select className="w-full border border-gray-300 rounded-lg px-3 py-2">
+            <select className="w-full border border-gray-300 px-3 py-2">
               <option>United Kingdom</option>
               <option>South Africa</option>
               <option>Zimbabwe</option>
@@ -108,7 +96,7 @@ export default function HeroSection() {
             <label className="block text-sm font-semibold mb-1">
               Delivering to
             </label>
-            <select className="w-full border border-gray-300 rounded-lg px-3 py-2">
+            <select className="w-full border border-gray-300 px-3 py-2">
               <option>United Kingdom</option>
               <option>South Africa</option>
               <option>Zimbabwe</option>
@@ -123,7 +111,7 @@ export default function HeroSection() {
             <input
               type="text"
               placeholder="Eg. 1 Kg"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2"
+              className="w-full border border-gray-300 px-3 py-2"
             />
           </div>
 
@@ -133,7 +121,13 @@ export default function HeroSection() {
             </label>
             <div className="flex items-center gap-3">
               <label className="flex items-center gap-1 text-sm">
-                <input type="radio" name="dimensions" value="later" defaultChecked /> later
+                <input
+                  type="radio"
+                  name="dimensions"
+                  value="later"
+                  defaultChecked
+                />{" "}
+                later
               </label>
               <label className="flex items-center gap-1 text-sm">
                 <input type="radio" name="dimensions" value="now" /> now
@@ -143,7 +137,7 @@ export default function HeroSection() {
 
           <button
             type="submit"
-            className="sm:col-span-4 bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 mt-4"
+            className="sm:col-span-4 bg-green-500 text-white py-3 font-semibold hover:bg-green-600 mt-4"
           >
             Get Quote
           </button>
