@@ -91,118 +91,126 @@ export default function HeroSection() {
 
         {/* Form */}
         <form className="p-6 grid sm:grid-cols-4 gap-4 items-end">
-          {/* Collect From */}
-          <div>
-            <label className="block text-sm font-semibold mb-1">
-              Collect from
-            </label>
-            <select className="w-full border border-gray-300 px-3 py-2">
-              {countries.map((country) => (
-                <option key={country}>{country}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Delivering To */}
-          <div>
-            <label className="block text-sm font-semibold mb-1">
-              Delivering to
-            </label>
-            <select className="w-full border border-gray-300 px-3 py-2">
-              {countries.map((country) => (
-                <option key={country}>{country}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Parcel Weight */}
-          <div>
-            <label className="block text-sm font-semibold mb-1">
-              Parcel weight
-            </label>
-            <input
-              type="text"
-              placeholder="Eg. 1 Kg"
-              className="w-full border border-gray-300 px-3 py-2"
-            />
-          </div>
-
-          {/* Dimensions Option */}
-          <div className="flex flex-col items-center">
-            <label className="block text-sm font-semibold mb-1">
-              I will fill in dimensions:
-            </label>
-            <div className="flex items-center gap-3">
-              <label className="flex items-center gap-1 text-sm">
-                <input
-                  type="radio"
-                  name="dimensions"
-                  value="later"
-                  checked={dimensionsOption === "later"}
-                  onChange={() => setDimensionsOption("later")}
-                />{" "}
-                later
-              </label>
-              <label className="flex items-center gap-1 text-sm">
-                <input
-                  type="radio"
-                  name="dimensions"
-                  value="now"
-                  checked={dimensionsOption === "now"}
-                  onChange={() => setDimensionsOption("now")}
-                />{" "}
-                now
-              </label>
+          {activeTab === "international" ? (
+            <div className="sm:col-span-4 text-center text-xl font-bold text-purple-700">
+              ythie
             </div>
-          </div>
-
-          {/* Dimensions Fields */}
-          {dimensionsOption === "now" && (
+          ) : (
             <>
+              {/* Collect From */}
               <div>
                 <label className="block text-sm font-semibold mb-1">
-                  Length:
+                  Collect from
                 </label>
-                <input
-                  type="text"
-                  placeholder="Eg. 1"
-                  className="w-full border border-gray-300 px-3 py-2"
-                />
-                <span className="text-sm text-gray-500">cm</span>
+                <select className="w-full border border-gray-300 px-3 py-2">
+                  {countries.map((country) => (
+                    <option key={country}>{country}</option>
+                  ))}
+                </select>
               </div>
 
+              {/* Delivering To */}
               <div>
                 <label className="block text-sm font-semibold mb-1">
-                  Width:
+                  Delivering to
                 </label>
-                <input
-                  type="text"
-                  placeholder="Eg. 1"
-                  className="w-full border border-gray-300 px-3 py-2"
-                />
-                <span className="text-sm text-gray-500">cm</span>
+                <select className="w-full border border-gray-300 px-3 py-2">
+                  {countries.map((country) => (
+                    <option key={country}>{country}</option>
+                  ))}
+                </select>
               </div>
 
+              {/* Parcel Weight */}
               <div>
                 <label className="block text-sm font-semibold mb-1">
-                  Height:
+                  Parcel weight
                 </label>
                 <input
                   type="text"
-                  placeholder="Eg. 1"
+                  placeholder="Eg. 1 Kg"
                   className="w-full border border-gray-300 px-3 py-2"
                 />
-                <span className="text-sm text-gray-500">cm</span>
               </div>
+
+              {/* Dimensions Option */}
+              <div className="flex flex-col items-center">
+                <label className="block text-sm font-semibold mb-1">
+                  I will fill in dimensions:
+                </label>
+                <div className="flex items-center gap-3">
+                  <label className="flex items-center gap-1 text-sm">
+                    <input
+                      type="radio"
+                      name="dimensions"
+                      value="later"
+                      checked={dimensionsOption === "later"}
+                      onChange={() => setDimensionsOption("later")}
+                    />{" "}
+                    later
+                  </label>
+                  <label className="flex items-center gap-1 text-sm">
+                    <input
+                      type="radio"
+                      name="dimensions"
+                      value="now"
+                      checked={dimensionsOption === "now"}
+                      onChange={() => setDimensionsOption("now")}
+                    />{" "}
+                    now
+                  </label>
+                </div>
+              </div>
+
+              {/* Dimensions Fields */}
+              {dimensionsOption === "now" && (
+                <>
+                  <div>
+                    <label className="block text-sm font-semibold mb-1">
+                      Length:
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Eg. 1"
+                      className="w-full border border-gray-300 px-3 py-2"
+                    />
+                    <span className="text-sm text-gray-500">cm</span>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold mb-1">
+                      Width:
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Eg. 1"
+                      className="w-full border border-gray-300 px-3 py-2"
+                    />
+                    <span className="text-sm text-gray-500">cm</span>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold mb-1">
+                      Height:
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Eg. 1"
+                      className="w-full border border-gray-300 px-3 py-2"
+                    />
+                    <span className="text-sm text-gray-500">cm</span>
+                  </div>
+                </>
+              )}
+
+              <button
+                type="submit"
+                className="sm:col-span-4 bg-green-500 text-white py-3 font-semibold hover:bg-green-600 mt-4"
+              >
+                Get Quote
+              </button>
             </>
           )}
-
-          <button
-            type="submit"
-            className="sm:col-span-4 bg-green-500 text-white py-3 font-semibold hover:bg-green-600 mt-4"
-          >
-            Get Quote
-          </button>
         </form>
 
         {/* Footer Links */}
