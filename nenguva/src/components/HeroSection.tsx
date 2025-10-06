@@ -24,31 +24,6 @@ export default function HeroSection() {
             </div>
             <span>Watch our video</span>
           </button>
-
-          {/* Trustpilot Section */}
-          <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-2">
-            <div className="flex items-center">
-              <span className="text-sm mr-2">★ Trustpilot</span>
-              <div className="flex">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
-                    key={i}
-                    className={`w-5 h-5 flex items-center justify-center ${
-                      i < 5 ? "bg-green-400" : "bg-gray-300"
-                    } text-white text-xs font-bold mr-1`}
-                  >
-                    ★
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="text-xs text-gray-200">
-              TrustScore 3.8{" "}
-              <a href="#" className="underline">
-                90,195 reviews
-              </a>
-            </p>
-          </div>
         </div>
       </div>
 
