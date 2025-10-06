@@ -4,11 +4,47 @@ import { useState } from "react";
 
 export default function HeroSection() {
   const [activeTab, setActiveTab] = useState("uk");
+  const [dimensionsOption, setDimensionsOption] = useState("later");
+
+  const countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
+    "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas",
+    "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize",
+    "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil",
+    "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+    "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China",
+    "Colombia", "Comoros", "Congo (Brazzaville)", "Congo (Kinshasa)", "Costa Rica",
+    "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
+    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea",
+    "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France",
+    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada",
+    "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras",
+    "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel",
+    "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+    "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
+    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi",
+    "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania",
+    "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia",
+    "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal",
+    "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea",
+    "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama",
+    "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
+    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore",
+    "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+    "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname",
+    "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand",
+    "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
+    "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates",
+    "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu",
+    "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe",
+  ];
 
   return (
     <section className="relative w-full bg-gradient-to-br from-purple-700 to-purple-800 text-white py-10 px-6 shadow-xl overflow-hidden">
       <div className="text-center max-w-4xl mx-auto">
-        {/* Left Side (Text content centered) */}
+        {/* Heading */}
         <div>
           <h1 className="text-4xl font-bold leading-tight mb-4">
             Compare and book <br />
@@ -55,30 +91,31 @@ export default function HeroSection() {
 
         {/* Form */}
         <form className="p-6 grid sm:grid-cols-4 gap-4 items-end">
+          {/* Collect From */}
           <div>
             <label className="block text-sm font-semibold mb-1">
               Collect from
             </label>
             <select className="w-full border border-gray-300 px-3 py-2">
-              <option>United Kingdom</option>
-              <option>South Africa</option>
-              <option>Zimbabwe</option>
-              <option>USA</option>
+              {countries.map((country) => (
+                <option key={country}>{country}</option>
+              ))}
             </select>
           </div>
 
+          {/* Delivering To */}
           <div>
             <label className="block text-sm font-semibold mb-1">
               Delivering to
             </label>
             <select className="w-full border border-gray-300 px-3 py-2">
-              <option>United Kingdom</option>
-              <option>South Africa</option>
-              <option>Zimbabwe</option>
-              <option>USA</option>
+              {countries.map((country) => (
+                <option key={country}>{country}</option>
+              ))}
             </select>
           </div>
 
+          {/* Parcel Weight */}
           <div>
             <label className="block text-sm font-semibold mb-1">
               Parcel weight
@@ -90,6 +127,7 @@ export default function HeroSection() {
             />
           </div>
 
+          {/* Dimensions Option */}
           <div className="flex flex-col items-center">
             <label className="block text-sm font-semibold mb-1">
               I will fill in dimensions:
@@ -100,15 +138,64 @@ export default function HeroSection() {
                   type="radio"
                   name="dimensions"
                   value="later"
-                  defaultChecked
+                  checked={dimensionsOption === "later"}
+                  onChange={() => setDimensionsOption("later")}
                 />{" "}
                 later
               </label>
               <label className="flex items-center gap-1 text-sm">
-                <input type="radio" name="dimensions" value="now" /> now
+                <input
+                  type="radio"
+                  name="dimensions"
+                  value="now"
+                  checked={dimensionsOption === "now"}
+                  onChange={() => setDimensionsOption("now")}
+                />{" "}
+                now
               </label>
             </div>
           </div>
+
+          {/* Dimensions Fields */}
+          {dimensionsOption === "now" && (
+            <>
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Length:
+                </label>
+                <input
+                  type="text"
+                  placeholder="Eg. 1"
+                  className="w-full border border-gray-300 px-3 py-2"
+                />
+                <span className="text-sm text-gray-500">cm</span>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Width:
+                </label>
+                <input
+                  type="text"
+                  placeholder="Eg. 1"
+                  className="w-full border border-gray-300 px-3 py-2"
+                />
+                <span className="text-sm text-gray-500">cm</span>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Height:
+                </label>
+                <input
+                  type="text"
+                  placeholder="Eg. 1"
+                  className="w-full border border-gray-300 px-3 py-2"
+                />
+                <span className="text-sm text-gray-500">cm</span>
+              </div>
+            </>
+          )}
 
           <button
             type="submit"
@@ -118,7 +205,7 @@ export default function HeroSection() {
           </button>
         </form>
 
-        {/* Footer links */}
+        {/* Footer Links */}
         <div className="text-center text-sm text-gray-600 border-t border-gray-200 py-3 space-x-2">
           <a href="#" className="hover:text-purple-700">
             Need same-day delivery
