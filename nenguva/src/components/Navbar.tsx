@@ -11,15 +11,13 @@ export default function Navbar() {
   const [guidesOpen, setGuidesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-4">
-        
-
-        <h1>Nenguva </h1>
+    <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
+      <div className="container mx-auto flex items-center justify-between p-4 text-white">
+        <h1 className="text-xl font-bold">Nenguva</h1>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-sm text-gray-700 border px-3 py-1 rounded"
+          className="md:hidden text-sm text-white border border-white px-3 py-1 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "Close" : "Menu"}
@@ -29,11 +27,14 @@ export default function Navbar() {
         <nav
           className={`${
             menuOpen ? "block" : "hidden"
-          } absolute md:static top-16 left-0 w-full md:w-auto bg-white md:flex md:space-x-6 shadow-md md:shadow-none p-4 md:p-0`}
+          } absolute md:static top-16 left-0 w-full md:w-auto bg-purple-700 md:flex md:space-x-6 shadow-md md:shadow-none p-4 md:p-0`}
         >
           <ul className="space-y-4 md:space-y-0 md:flex md:items-center md:gap-6">
             <li>
-              <Link href="/" className="text-gray-700 hover:text-blue-600 inline-flex items-center gap-2">
+              <Link
+                href="/"
+                className="hover:text-yellow-300 inline-flex items-center gap-2"
+              >
                 {/* Home icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +49,10 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/quotev3.php" className="text-gray-700 hover:text-blue-600">
+              <Link
+                href="/quotev3.php"
+                className="hover:text-yellow-300"
+              >
                 Send Parcels
               </Link>
             </li>
@@ -56,13 +60,13 @@ export default function Navbar() {
             {/* Tracking */}
             <li className="relative">
               <button
-                className="text-gray-700 hover:text-blue-600"
+                className="hover:text-yellow-300"
                 onClick={() => setTrackingOpen(!trackingOpen)}
               >
                 Tracking
               </button>
               {trackingOpen && (
-                <div className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64">
+                <div className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 text-gray-700">
                   <form action="/tracking.php" method="post" className="space-y-2">
                     <h3 className="font-semibold text-gray-800 text-sm">
                       Track Your Parcel
@@ -75,7 +79,7 @@ export default function Navbar() {
                     />
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 text-white py-1 rounded text-sm"
+                      className="w-full bg-purple-700 text-white py-1 rounded text-sm hover:bg-purple-800"
                     >
                       Track Now
                     </button>
@@ -87,7 +91,7 @@ export default function Navbar() {
             {/* Services */}
             <li className="relative">
               <button
-                className="text-gray-700 hover:text-blue-600"
+                className="hover:text-yellow-300"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 Services
@@ -95,27 +99,27 @@ export default function Navbar() {
               {servicesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
                   <li>
-                    <Link href="/courier-services" className="hover:text-blue-600">
+                    <Link href="/courier-services" className="hover:text-purple-700">
                       Courier Companies
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/dhl" className="hover:text-blue-600">
+                    <Link href="/courier-services/dhl" className="hover:text-purple-700">
                       DHL
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/dpd" className="hover:text-blue-600">
+                    <Link href="/courier-services/dpd" className="hover:text-purple-700">
                       DPD
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/ups" className="hover:text-blue-600">
+                    <Link href="/courier-services/ups" className="hover:text-purple-700">
                       UPS
                     </Link>
                   </li>
                   <li>
-                    <Link href="/delivery-services" className="hover:text-blue-600">
+                    <Link href="/delivery-services" className="hover:text-purple-700">
                       Parcel Delivery Services
                     </Link>
                   </li>
@@ -126,7 +130,7 @@ export default function Navbar() {
             {/* Guides */}
             <li className="relative">
               <button
-                className="text-gray-700 hover:text-blue-600"
+                className="hover:text-yellow-300"
                 onClick={() => setGuidesOpen(!guidesOpen)}
               >
                 Guides
@@ -134,22 +138,22 @@ export default function Navbar() {
               {guidesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
                   <li>
-                    <Link href="/delivery-sizes" className="hover:text-blue-600">
+                    <Link href="/delivery-sizes" className="hover:text-purple-700">
                       Parcel Weight & Size Limits
                     </Link>
                   </li>
                   <li>
-                    <Link href="/postage-rates" className="hover:text-blue-600">
+                    <Link href="/postage-rates" className="hover:text-purple-700">
                       Postage Rates
                     </Link>
                   </li>
                   <li>
-                    <Link href="/customs-charges" className="hover:text-blue-600">
+                    <Link href="/customs-charges" className="hover:text-purple-700">
                       Customs Charges
                     </Link>
                   </li>
                   <li>
-                    <Link href="/multi-parcels" className="hover:text-blue-600">
+                    <Link href="/multi-parcels" className="hover:text-purple-700">
                       Sending Multiple Parcels
                     </Link>
                   </li>
@@ -159,21 +163,30 @@ export default function Navbar() {
 
             {/* Static Links */}
             <li>
-              <Link href="/reviews.php" className="text-gray-700 hover:text-blue-600">
+              <Link
+                href="/reviews.php"
+                className="hover:text-yellow-300"
+              >
                 Reviews
               </Link>
             </li>
             <li>
-              <Link href="/my-rewards" className="text-gray-700 hover:text-blue-600">
+              <Link
+                href="/my-rewards"
+                className="hover:text-yellow-300"
+              >
                 Rewards
               </Link>
             </li>
-            <li>
-              <Link href="/contactus4.php" className="text-gray-700 hover:text-blue-600">
+            <li className="flex items-center gap-2">
+              <Link
+                href="/contactus4.php"
+                className="hover:text-yellow-300"
+              >
                 Contact Us
               </Link>
               {/* Cart icon after Contact */}
-              <span className="inline-block ml-2 align-middle" aria-hidden="true">
+              <span className="inline-block align-middle" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -193,14 +206,17 @@ export default function Navbar() {
 
             {/* Login & Signup */}
             <li>
-              <Link href="/login.php" className="text-gray-700 hover:text-blue-600">
+              <Link
+                href="/login.php"
+                className="hover:text-yellow-300"
+              >
                 Log In
               </Link>
             </li>
             <li>
               <Link
                 href="/register.php"
-                className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+                className="bg-yellow-400 text-purple-900 px-4 py-1 rounded hover:bg-yellow-300"
               >
                 Sign Up
               </Link>
