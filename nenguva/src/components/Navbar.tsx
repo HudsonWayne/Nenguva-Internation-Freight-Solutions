@@ -13,16 +13,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
-        {/* Logo */}
-        <Link href="/">
-          <Image
-            src="/templates/pmMain/img/logo/logo-272.png"
-            alt="Parcel Monkey"
-            width={150}
-            height={40}
-            className="w-auto h-10"
-          />
-        </Link>
+        
+
+        <h1>Nenguva </h1>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -40,7 +33,17 @@ export default function Navbar() {
         >
           <ul className="space-y-4 md:space-y-0 md:flex md:items-center md:gap-6">
             <li>
-              <Link href="/" className="text-gray-700 hover:text-blue-600">
+              <Link href="/" className="text-gray-700 hover:text-blue-600 inline-flex items-center gap-2">
+                {/* Home icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M10.707 1.707a1 1 0 00-1.414 0L2 9v8a1 1 0 001 1h5a1 1 0 001-1V12h2v5a1 1 0 001 1h5a1 1 0 001-1V9l-7.293-7.293z" />
+                </svg>
                 Home
               </Link>
             </li>
@@ -56,7 +59,7 @@ export default function Navbar() {
                 className="text-gray-700 hover:text-blue-600"
                 onClick={() => setTrackingOpen(!trackingOpen)}
               >
-                Tracking ⬇
+                Tracking
               </button>
               {trackingOpen && (
                 <div className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64">
@@ -87,7 +90,7 @@ export default function Navbar() {
                 className="text-gray-700 hover:text-blue-600"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
-                Services ⬇
+                Services
               </button>
               {servicesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
@@ -126,7 +129,7 @@ export default function Navbar() {
                 className="text-gray-700 hover:text-blue-600"
                 onClick={() => setGuidesOpen(!guidesOpen)}
               >
-                Guides ⬇
+                Guides
               </button>
               {guidesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
@@ -169,6 +172,23 @@ export default function Navbar() {
               <Link href="/contactus4.php" className="text-gray-700 hover:text-blue-600">
                 Contact Us
               </Link>
+              {/* Cart icon after Contact */}
+              <span className="inline-block ml-2 align-middle" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </span>
             </li>
 
             {/* Login & Signup */}
