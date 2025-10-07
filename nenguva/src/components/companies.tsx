@@ -11,17 +11,17 @@ const deliveryCompanies = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 py-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-white overflow-hidden px-4 py-12">
       <h1 className="text-2xl md:text-3xl font-medium text-gray-800 mb-10 text-center">
         Send your parcel with trusted delivery companies
       </h1>
 
-      {/* Horizontal scrollable row (scrollbar hidden) */}
-      <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center items-center mb-12 overflow-x-auto px-4 hide-scrollbar">
+      {/* Centered row, no scrolling at all */}
+      <div className="flex flex-wrap gap-6 justify-center items-center mb-12 w-full">
         {deliveryCompanies.map((company, idx) => (
           <div
             key={idx}
-            className="w-36 h-36 flex items-center justify-center bg-gray-50 shadow-sm rounded-md flex-shrink-0"
+            className="w-36 h-36 flex items-center justify-center bg-gray-50 shadow-sm rounded-md"
           >
             <Image
               src={company.logo}
