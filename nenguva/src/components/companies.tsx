@@ -21,7 +21,7 @@ export default function Home() {
         {deliveryCompanies.map((company, idx) => (
           <div
             key={idx}
-            className="w-36 h-36 flex items-center justify-center bg-gray-50 shadow-sm rounded-md"
+            className="w-50 h-50 flex items-center justify-center bg-gray-50 shadow-sm rounded-md"
           >
             <Image
               src={company.logo}
