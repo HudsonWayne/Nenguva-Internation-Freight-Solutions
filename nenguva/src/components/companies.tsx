@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 const deliveryCompanies = [
-  { name: "UPS", logo: "/logos/ups.png" },
+  { name: "UPS", logo: "/public\FedEx.jpg" },
   { name: "ParcelForce", logo: "/logos/parcelforce.png" },
   { name: "DPD", logo: "/logos/dpd.png" },
   { name: "FedEx", logo: "/logos/fedex.png" },
