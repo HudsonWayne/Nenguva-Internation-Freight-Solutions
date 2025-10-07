@@ -1,13 +1,12 @@
-// pages/index.js
-import Image from 'next/image';
+import Image from "next/image";
 
 const deliveryCompanies = [
-  { name: "UPS", logo: "/public\FedEx.jpg" },
-  { name: "ParcelForce", logo: "/logos/parcelforce.png" },
-  { name: "DPD", logo: "/logos/dpd.png" },
-  { name: "FedEx", logo: "/logos/fedex.png" },
-  { name: "DHL", logo: "/logos/dhl.png" },
-  { name: "Evri", logo: "/logos/evri.png" },
+  { name: "FedEx", logo: "/FedEx.jpg" },
+  { name: "UPS", logo: "/Ups.jpg" },
+  { name: "Two", logo: "/Two.jpg" },
+  { name: "FedEx", logo: "/FedEx.jpg" },
+  { name: "UPS", logo: "/Ups.jpg" },
+  { name: "Two", logo: "/Two.jpg" },
 ];
 
 export default function Home() {
@@ -17,8 +16,8 @@ export default function Home() {
         Send your parcel with trusted delivery companies
       </h1>
 
-      {/* Horizontal scrollable row */}
-      <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center items-center mb-12 overflow-x-auto px-4">
+      {/* Horizontal scrollable row (scrollbar hidden) */}
+      <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center items-center mb-12 overflow-x-auto px-4 hide-scrollbar">
         {deliveryCompanies.map((company, idx) => (
           <div
             key={idx}
@@ -27,9 +26,10 @@ export default function Home() {
             <Image
               src={company.logo}
               alt={company.name}
-              width={100}
-              height={60}
-              objectFit="contain"
+              width={120}
+              height={80}
+              className="object-contain"
+              priority
             />
           </div>
         ))}
