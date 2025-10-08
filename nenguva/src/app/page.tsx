@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import Companies from "@/components/companies"
 import WhyUseNguva from "@/components/WhyUseNguva";
 import PopularServices from "@/components/PopularServices";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
       <HeroSection/>
       <Companies/>
       <WhyUseNguva/>
-       <PopularServices />
+      <PopularServices />
+      <Footer />
     </div>
   );
 }
