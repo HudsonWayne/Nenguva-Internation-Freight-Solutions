@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react"; // Built-in icon from lucide-react
+import { ArrowRight } from "lucide-react";
 
 export default function PopularServices() {
   const services = [
