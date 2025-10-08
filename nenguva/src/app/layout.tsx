@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Nenguva | Parcel Delivery",
@@ -16,13 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
-        {/* Navbar at the top */}
+        {/* ✅ Navbar appears only once here */}
         <Navbar />
 
-        {/* Main page content */}
+        {/* ✅ Page content */}
         <main className="flex-grow">{children}</main>
 
-        {/* Footer at the bottom */}
+        {/* ✅ Footer appears only once here */}
         <Footer />
       </body>
     </html>
