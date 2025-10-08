@@ -42,34 +42,32 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-purple-700 to-purple-800 text-white py-10 px-6 shadow-xl overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-purple-700 to-purple-800 text-white py-10 px-4 sm:px-6 lg:px-8 shadow-xl overflow-hidden">
       <div className="text-center max-w-4xl mx-auto">
         {/* Heading */}
-        <div>
-          <h1 className="text-4xl font-bold leading-tight mb-4">
-            Compare and book <br />
-            <span className="text-5xl font-extrabold text-yellow-300">
-              parcel delivery services
-            </span>
-          </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Compare and book <br />
+          <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-300">
+            parcel delivery services
+          </span>
+        </h1>
 
-          {/* Watch video button */}
-          <button className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 transition px-4 py-2 mt-4">
-            <div className="bg-red-500 w-6 h-6 flex items-center justify-center">
-              ▶
-            </div>
-            <span>Watch our video</span>
-          </button>
-        </div>
+        {/* Watch video button */}
+        <button className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 transition px-4 py-2 mt-4 text-sm sm:text-base md:text-lg rounded">
+          <div className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full text-white">
+            ▶
+          </div>
+          <span>Watch our video</span>
+        </button>
       </div>
 
       {/* Quote Form */}
-      <div className="bg-white text-gray-800 mt-10 shadow-lg max-w-6xl mx-auto">
+      <div className="bg-white text-gray-800 mt-10 shadow-lg max-w-6xl mx-auto rounded-lg overflow-hidden">
         {/* Tabs */}
-        <div className="flex">
+        <div className="flex flex-col sm:flex-row">
           <button
             onClick={() => setActiveTab("uk")}
-            className={`w-1/2 py-3 text-lg font-semibold ${
+            className={`w-full sm:w-1/2 py-3 text-lg font-semibold transition-colors ${
               activeTab === "uk"
                 ? "bg-green-500 text-white"
                 : "bg-gray-900 text-white"
@@ -79,7 +77,7 @@ export default function HeroSection() {
           </button>
           <button
             onClick={() => setActiveTab("international")}
-            className={`w-1/2 py-3 text-lg font-semibold ${
+            className={`w-full sm:w-1/2 py-3 text-lg font-semibold transition-colors ${
               activeTab === "international"
                 ? "bg-green-500 text-white"
                 : "bg-gray-900 text-white"
@@ -90,13 +88,13 @@ export default function HeroSection() {
         </div>
 
         {/* Form */}
-        <form className="p-6 grid sm:grid-cols-4 gap-4 items-end">
+        <form className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
           {/* Collect From */}
           <div>
             <label className="block text-sm font-semibold mb-1">
               Collect from
             </label>
-            <select className="w-full border border-gray-300 px-3 py-2">
+            <select className="w-full border border-gray-300 px-3 py-2 rounded">
               {countries.map((country) => (
                 <option key={country}>{country}</option>
               ))}
@@ -108,7 +106,7 @@ export default function HeroSection() {
             <label className="block text-sm font-semibold mb-1">
               Delivering to
             </label>
-            <select className="w-full border border-gray-300 px-3 py-2">
+            <select className="w-full border border-gray-300 px-3 py-2 rounded">
               {countries.map((country) => (
                 <option key={country}>{country}</option>
               ))}
@@ -123,16 +121,16 @@ export default function HeroSection() {
             <input
               type="text"
               placeholder="Eg. 1 Kg"
-              className="w-full border border-gray-300 px-3 py-2"
+              className="w-full border border-gray-300 px-3 py-2 rounded"
             />
           </div>
 
           {/* Dimensions Option */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start sm:items-center">
             <label className="block text-sm font-semibold mb-1">
               I will fill in dimensions:
             </label>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <label className="flex items-center gap-1 text-sm">
                 <input
                   type="radio"
@@ -166,7 +164,7 @@ export default function HeroSection() {
                 <input
                   type="text"
                   placeholder="Eg. 1"
-                  className="w-full border border-gray-300 px-3 py-2"
+                  className="w-full border border-gray-300 px-3 py-2 rounded"
                 />
                 <span className="text-sm text-gray-500">cm</span>
               </div>
@@ -178,7 +176,7 @@ export default function HeroSection() {
                 <input
                   type="text"
                   placeholder="Eg. 1"
-                  className="w-full border border-gray-300 px-3 py-2"
+                  className="w-full border border-gray-300 px-3 py-2 rounded"
                 />
                 <span className="text-sm text-gray-500">cm</span>
               </div>
@@ -190,7 +188,7 @@ export default function HeroSection() {
                 <input
                   type="text"
                   placeholder="Eg. 1"
-                  className="w-full border border-gray-300 px-3 py-2"
+                  className="w-full border border-gray-300 px-3 py-2 rounded"
                 />
                 <span className="text-sm text-gray-500">cm</span>
               </div>
@@ -199,14 +197,14 @@ export default function HeroSection() {
 
           <button
             type="submit"
-            className="sm:col-span-4 bg-green-500 text-white py-3 font-semibold hover:bg-green-600 mt-4"
+            className="sm:col-span-2 md:col-span-4 bg-green-500 text-white py-3 font-semibold hover:bg-green-600 mt-4 rounded transition"
           >
             Get Quote
           </button>
         </form>
 
         {/* Footer Links */}
-        <div className="text-center text-sm text-gray-600 border-t border-gray-200 py-3 space-x-2">
+        <div className="text-center text-sm sm:text-base text-gray-600 border-t border-gray-200 py-3 space-x-2 flex flex-wrap justify-center gap-2">
           <a href="#" className="hover:text-purple-700">
             Need same-day delivery
           </a>
