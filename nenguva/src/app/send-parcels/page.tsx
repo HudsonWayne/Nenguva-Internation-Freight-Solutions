@@ -37,7 +37,7 @@ export default function SendParcels() {
   ];
 
   return (
-    <div className="w-[100%] mx-auto my-10 p-6">
+    <div className="w-[90%] mx-auto my-10 p-6">
       {/* Header */}
       <h1 className="text-3xl font-bold mb-2 text-gray-800">
         <span className="text-purple-700">Courier</span> Quote{" "}
@@ -179,9 +179,71 @@ export default function SendParcels() {
       </div>
 
       {/* Proceed Button */}
-      <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg">
+      <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg mb-10">
         Proceed
       </button>
+
+      {/* Why Choose Section */}
+      <div className="w-[90%] mx-auto mt-10">
+        <h2 className="text-2xl font-bold text-purple-800 mb-6">
+          Why choose Parcel Monkey?
+        </h2>
+
+        <div className="space-y-6 text-gray-800 leading-relaxed">
+          <div>
+            <h3 className="font-bold text-purple-800 mb-1">Save time</h3>
+            <p>
+              Save yourself time by comparing couriers online using our parcel delivery, quick quote tool. 
+              There is no need to spend hours looking for the best parcel post prices as we can do this for 
+              you in just a couple of clicks.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-purple-800 mb-1">Save money</h3>
+            <p>
+              If you are looking for cheap parcel delivery then we can help you book in your parcel for 
+              an affordable price. Due to the volumes of parcel shipping we do, we have the advantage 
+              of lower shipping costs which we pass on to our customers.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-purple-800 mb-1">Choice</h3>
+            <p>
+              We work with well known couriers so that no matter what type of delivery service you need, 
+              we can help. If you need the cheapest or the fastest delivery service around, you can 
+              compare parcel delivery quotes and book a courier online in minutes.
+            </p>
+            <p className="mt-2">
+              We offer everything from large parcel delivery to international shipping, whilst you can 
+              book a collection from your home or work, or one of our Drop Off options.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-purple-800 mb-1">
+              Door to door fully tracked delivery
+            </h3>
+            <p>
+              When you book a courier service with Parcel Monkey you will be provided with full tracking 
+              so that you can follow your parcel until it is delivered. You can also share this with the 
+              recipient so they too can monitor the parcel’s movement.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-purple-800 mb-1">
+              Sending something valuable?
+            </h3>
+            <p>
+              Why not add protection cover to your booking? Some of our courier services come with 
+              £20 FREE protection cover and we offer extended liability up to the value of £1000 
+              for those more expensive shipments.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
