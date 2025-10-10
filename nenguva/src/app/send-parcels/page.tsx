@@ -7,33 +7,33 @@ export default function SendParcels() {
 
   const countries = [
     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
-    "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
-    "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
-    "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
-    "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic",
-    "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)",
-    "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo",
-    "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador",
-    "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini (Swaziland)", "Ethiopia", "Fiji", "Finland",
-    "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
-    "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India",
-    "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan",
-    "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon",
-    "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar",
-    "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius",
-    "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique",
-    "Myanmar (Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua",
-    "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau",
-    "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland",
-    "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
-    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia",
-    "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
-    "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka",
-    "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania",
-    "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
-    "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
-    "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
-    "Yemen", "Zambia", "Zimbabwe"
+    "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+    "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+    "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde",
+    "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China",
+    "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica", "Croatia", "Cuba",
+    "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia",
+    "Eswatini (Swaziland)", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia",
+    "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau",
+    "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq",
+    "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+    "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya",
+    "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives",
+    "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia",
+    "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)",
+    "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria",
+    "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State",
+    "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
+    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia",
+    "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan",
+    "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan",
+    "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago",
+    "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates",
+    "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City",
+    "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
   ];
 
   return (
@@ -54,105 +54,92 @@ export default function SendParcels() {
       </p>
 
       {/* Sender/Receiver Form */}
-      <div className="bg-gray-100 p-5 rounded-lg shadow-sm mb-6">
-        <h2 className="font-semibold text-gray-800 mb-2">
+      <div className="bg-purple-50 p-6 rounded-xl shadow-md mb-6 border border-purple-200">
+        <h2 className="font-semibold text-purple-800 mb-4 text-lg">
           Where is your parcel going?
         </h2>
 
         <div className="mb-4">
-          <label className="block font-semibold text-gray-700 mb-1">
+          <label className="block font-semibold text-purple-700 mb-1">
             Sending from
           </label>
-          <div className="flex items-center">
-            <select
-              className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-              defaultValue="United Kingdom"
-            >
-              {countries.map((country) => (
-                <option key={country}>{country}</option>
-              ))}
-            </select>
-          </div>
+          <select
+            className="border border-purple-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            defaultValue="United Kingdom"
+          >
+            {countries.map((country) => (
+              <option key={country}>{country}</option>
+            ))}
+          </select>
         </div>
 
         <div className="mb-4">
-          <label className="block font-semibold text-gray-700 mb-1">
+          <label className="block font-semibold text-purple-700 mb-1">
             Delivering to
           </label>
-          <div className="flex items-center">
-            <select
-              className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-              defaultValue="United States"
-            >
-              {countries.map((country) => (
-                <option key={country}>{country}</option>
-              ))}
-            </select>
-          </div>
+          <select
+            className="border border-purple-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            defaultValue="United States"
+          >
+            {countries.map((country) => (
+              <option key={country}>{country}</option>
+            ))}
+          </select>
         </div>
 
-        <p className="text-gray-600 mb-2 text-sm">
-          We will like to send you confirmation of your order and labels (where
-          required). Please enter your email address below:
+        <p className="text-gray-700 mb-2 text-sm">
+          We’ll send you confirmation of your order and labels (where required).
         </p>
 
         <div>
-          <label className="block font-semibold text-gray-700 mb-1">
+          <label className="block font-semibold text-purple-700 mb-1">
             Your Email
           </label>
           <input
             type="email"
             placeholder="myname@example.com"
-            className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="border border-purple-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
       </div>
 
       {/* Parcel Dimensions Section */}
       {[...Array(parcelCount)].map((_, index) => (
-        <div key={index} className="bg-gray-100 p-5 rounded-lg shadow-sm mb-4">
-          <h3 className="font-semibold text-gray-800 mb-4">
+        <div key={index} className="bg-green-50 p-6 rounded-xl shadow-sm mb-4 border border-green-200">
+          <h3 className="font-semibold text-green-800 mb-4">
             Parcel {index + 1}
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
-              <label className="block font-semibold text-gray-700 mb-1">
-                Length *
-              </label>
+              <label className="block font-semibold text-green-700 mb-1">Length *</label>
               <input
                 type="number"
                 placeholder="cm"
-                className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="border border-green-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div>
-              <label className="block font-semibold text-gray-700 mb-1">
-                Width *
-              </label>
+              <label className="block font-semibold text-green-700 mb-1">Width *</label>
               <input
                 type="number"
                 placeholder="cm"
-                className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="border border-green-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div>
-              <label className="block font-semibold text-gray-700 mb-1">
-                Height *
-              </label>
+              <label className="block font-semibold text-green-700 mb-1">Height *</label>
               <input
                 type="number"
                 placeholder="cm"
-                className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="border border-green-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div>
-              <label className="block font-semibold text-gray-700 mb-1">
-                Weight *
-              </label>
+              <label className="block font-semibold text-green-700 mb-1">Weight *</label>
               <input
                 type="number"
                 placeholder="kg"
-                className="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="border border-green-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
           </div>
@@ -163,7 +150,7 @@ export default function SendParcels() {
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={() => setParcelCount(parcelCount + 1)}
-          className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded text-sm"
+          className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded text-sm transition"
         >
           Add another parcel
         </button>
@@ -179,17 +166,17 @@ export default function SendParcels() {
       </div>
 
       {/* Proceed Button */}
-      <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg mb-10">
+      <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg mb-10 transition">
         Proceed
       </button>
 
       {/* Why Choose Section */}
-      <div className="bg-gray-100 rounded-xl p-8 mt-10 shadow-sm">
+      <div className="bg-gray-50 rounded-2xl p-10 mt-12 shadow-md border border-gray-200">
         <h2 className="text-3xl font-bold text-purple-800 mb-8 text-center">
           Why choose Parcel Monkey?
         </h2>
 
-        <div className="space-y-8 text-gray-800 leading-relaxed">
+        <div className="space-y-8 text-gray-800 leading-relaxed max-w-4xl mx-auto">
           <div>
             <h3 className="text-xl font-bold text-purple-800 mb-2">Save time</h3>
             <p>
