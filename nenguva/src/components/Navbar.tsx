@@ -3,12 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [trackingOpen, setTrackingOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
+
+  const pathname = usePathname(); // Get current path
+
+  const isActive = (href) => pathname === href;
 
   return (
     <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
@@ -33,7 +38,9 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className="hover:text-yellow-300 inline-flex items-center gap-2"
+                className={`inline-flex items-center gap-2 hover:text-yellow-300 ${
+                  isActive("/") ? "text-yellow-400" : ""
+                }`}
               >
                 {/* Home icon */}
                 <svg
@@ -51,7 +58,9 @@ export default function Navbar() {
             <li>
               <Link
                 href="/send-parcels"
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${
+                  isActive("/send-parcels") ? "text-yellow-400" : ""
+                }`}
               >
                 Send Parcels
               </Link>
@@ -60,7 +69,9 @@ export default function Navbar() {
             {/* Tracking */}
             <li className="relative">
               <button
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${
+                  isActive("/tracking.php") ? "text-yellow-400" : ""
+                }`}
                 onClick={() => setTrackingOpen(!trackingOpen)}
               >
                 Tracking
@@ -91,7 +102,11 @@ export default function Navbar() {
             {/* Services */}
             <li className="relative">
               <button
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${
+                  pathname.startsWith("/courier-services") || pathname === "/delivery-services"
+                    ? "text-yellow-400"
+                    : ""
+                }`}
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 Services
@@ -99,27 +114,52 @@ export default function Navbar() {
               {servicesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
                   <li>
-                    <Link href="/courier-services" className="hover:text-purple-700">
+                    <Link
+                      href="/courier-services"
+                      className={`hover:text-purple-700 ${
+                        isActive("/courier-services") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Courier Companies
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/dhl" className="hover:text-purple-700">
+                    <Link
+                      href="/courier-services/dhl"
+                      className={`hover:text-purple-700 ${
+                        isActive("/courier-services/dhl") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       DHL
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/dpd" className="hover:text-purple-700">
+                    <Link
+                      href="/courier-services/dpd"
+                      className={`hover:text-purple-700 ${
+                        isActive("/courier-services/dpd") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       DPD
                     </Link>
                   </li>
                   <li>
-                    <Link href="/courier-services/ups" className="hover:text-purple-700">
+                    <Link
+                      href="/courier-services/ups"
+                      className={`hover:text-purple-700 ${
+                        isActive("/courier-services/ups") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       UPS
                     </Link>
                   </li>
                   <li>
-                    <Link href="/delivery-services" className="hover:text-purple-700">
+                    <Link
+                      href="/delivery-services"
+                      className={`hover:text-purple-700 ${
+                        isActive("/delivery-services") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Parcel Delivery Services
                     </Link>
                   </li>
@@ -130,7 +170,14 @@ export default function Navbar() {
             {/* Guides */}
             <li className="relative">
               <button
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${
+                  pathname.startsWith("/delivery-sizes") ||
+                  pathname.startsWith("/postage-rates") ||
+                  pathname.startsWith("/customs-charges") ||
+                  pathname.startsWith("/multi-parcels")
+                    ? "text-yellow-400"
+                    : ""
+                }`}
                 onClick={() => setGuidesOpen(!guidesOpen)}
               >
                 Guides
@@ -138,22 +185,42 @@ export default function Navbar() {
               {guidesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
                   <li>
-                    <Link href="/delivery-sizes" className="hover:text-purple-700">
+                    <Link
+                      href="/delivery-sizes"
+                      className={`hover:text-purple-700 ${
+                        isActive("/delivery-sizes") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Parcel Weight & Size Limits
                     </Link>
                   </li>
                   <li>
-                    <Link href="/postage-rates" className="hover:text-purple-700">
+                    <Link
+                      href="/postage-rates"
+                      className={`hover:text-purple-700 ${
+                        isActive("/postage-rates") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Postage Rates
                     </Link>
                   </li>
                   <li>
-                    <Link href="/customs-charges" className="hover:text-purple-700">
+                    <Link
+                      href="/customs-charges"
+                      className={`hover:text-purple-700 ${
+                        isActive("/customs-charges") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Customs Charges
                     </Link>
                   </li>
                   <li>
-                    <Link href="/multi-parcels" className="hover:text-purple-700">
+                    <Link
+                      href="/multi-parcels"
+                      className={`hover:text-purple-700 ${
+                        isActive("/multi-parcels") ? "text-yellow-400" : ""
+                      }`}
+                    >
                       Sending Multiple Parcels
                     </Link>
                   </li>
@@ -165,7 +232,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/reviews.php"
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${isActive("/reviews.php") ? "text-yellow-400" : ""}`}
               >
                 Reviews
               </Link>
@@ -173,7 +240,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/my-rewards"
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${isActive("/my-rewards") ? "text-yellow-400" : ""}`}
               >
                 Rewards
               </Link>
@@ -181,7 +248,7 @@ export default function Navbar() {
             <li className="flex items-center gap-2">
               <Link
                 href="/contactus4.php"
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${isActive("/contactus4.php") ? "text-yellow-400" : ""}`}
               >
                 Contact Us
               </Link>
@@ -208,7 +275,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/login.php"
-                className="hover:text-yellow-300"
+                className={`hover:text-yellow-300 ${isActive("/login.php") ? "text-yellow-400" : ""}`}
               >
                 Log In
               </Link>
@@ -216,7 +283,9 @@ export default function Navbar() {
             <li>
               <Link
                 href="/register.php"
-                className="bg-yellow-400 text-purple-900 px-4 py-1 rounded hover:bg-yellow-300"
+                className={`bg-yellow-400 text-purple-900 px-4 py-1 rounded hover:bg-yellow-300 ${
+                  isActive("/register.php") ? "text-yellow-400" : ""
+                }`}
               >
                 Sign Up
               </Link>
