@@ -50,7 +50,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/quotev3.php"
+                href="/send-parcels"
                 className="hover:text-yellow-300"
               >
                 Send Parcels
