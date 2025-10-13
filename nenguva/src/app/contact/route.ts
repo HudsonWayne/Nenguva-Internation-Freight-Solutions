@@ -5,9 +5,8 @@ export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
-    // Create a transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com", // or your provider
+      host: "smtp.gmail.com",
       port: 465,
       secure: true,
       auth: {
@@ -16,7 +15,6 @@ export async function POST(req: Request) {
       },
     });
 
-    // Send the email
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: process.env.CONTACT_RECEIVER,
