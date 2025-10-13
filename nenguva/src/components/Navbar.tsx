@@ -82,11 +82,6 @@ export default function Navbar() {
                 Services
               </button>
 
-              {/* Gray background overlay */}
-              {servicesOpen && (
-                <div className="fixed inset-0 bg-gray-800 bg-opacity-40 z-40"></div>
-              )}
-
               {/* Mega Menu */}
               {servicesOpen && (
                 <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
@@ -96,17 +91,17 @@ export default function Navbar() {
                       COURIER COMPANIES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li><Link href="#">DPD</Link></li>
-                      <li><Link href="#">DX</Link></li>
-                      <li><Link href="#">DHL</Link></li>
-                      <li><Link href="#">Parcelforce</Link></li>
-                      <li><Link href="#">Parcel Monkey International</Link></li>
-                      <li><Link href="#">CitySprint</Link></li>
-                      <li><Link href="#">UPS</Link></li>
-                      <li><Link href="#">FedEx Express</Link></li>
-                      <li><Link href="#">Yodel Direct</Link></li>
-                      <li><Link href="#">Evri</Link></li>
-                      <li><Link href="#">DeliveryApp</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DX</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DHL</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey International</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">CitySprint</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">UPS</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Express</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Yodel Direct</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DeliveryApp</Link></li>
                     </ul>
                   </div>
 
@@ -116,27 +111,27 @@ export default function Navbar() {
                       COURIER SERVICES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li><Link href="#">DHL Parcel UK</Link></li>
-                      <li><Link href="#">DPD Air Classic</Link></li>
-                      <li><Link href="#">DPD Air Express</Link></li>
-                      <li><Link href="#">DPD Classic</Link></li>
-                      <li><Link href="#">DPD Drop Off</Link></li>
-                      <li><Link href="#">DX Freight</Link></li>
-                      <li><Link href="#">Evri Collection</Link></li>
-                      <li><Link href="#">Evri Drop Off</Link></li>
-                      <li><Link href="#">Evri International Collection</Link></li>
-                      <li><Link href="#">Evri International Drop Off</Link></li>
-                      <li><Link href="#">FedEx International Economy Drop Off</Link></li>
-                      <li><Link href="#">FedEx International Priority Drop Off</Link></li>
-                      <li><Link href="#">FedEx Next Day Drop Off</Link></li>
-                      <li><Link href="#">FedEx Regional Economy Drop Off</Link></li>
-                      <li><Link href="#">Parcel Monkey Air Express</Link></li>
-                      <li><Link href="#">Parcel Monkey Europe By Road</Link></li>
-                      <li><Link href="#">Parcelforce 24</Link></li>
-                      <li><Link href="#">Parcelforce 48</Link></li>
-                      <li><Link href="#">Parcelforce 48 Large</Link></li>
-                      <li><Link href="#">Parcelforce Global Priority</Link></li>
-                      <li><Link href="#">Yodel Direct Economy Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DHL Parcel UK</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Air Classic</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Air Express</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Classic</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DX Freight</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri Collection</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri International Collection</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri International Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx International Economy Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx International Priority Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Next Day Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Regional Economy Drop Off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey Air Express</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey Europe By Road</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 24</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 48</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 48 Large</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce Global Priority</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Yodel Direct Economy Drop Off</Link></li>
                     </ul>
                   </div>
 
@@ -146,29 +141,29 @@ export default function Navbar() {
                       PARCEL DELIVERY SERVICES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li><Link href="#">International parcel delivery</Link></li>
-                      <li><Link href="#">Domestic UK delivery</Link></li>
-                      <li><Link href="#">Large parcel delivery</Link></li>
-                      <li><Link href="#">Heavy parcel delivery</Link></li>
-                      <li><Link href="#">Long parcel delivery</Link></li>
-                      <li><Link href="#">Small parcel delivery</Link></li>
-                      <li><Link href="#">Courier parcel collection</Link></li>
-                      <li><Link href="#">Parcel drop off</Link></li>
-                      <li><Link href="#">Pallet delivery</Link></li>
-                      <li><Link href="#">Recorded delivery service</Link></li>
-                      <li><Link href="#">Same day courier service</Link></li>
-                      <li><Link href="#">Next day parcel delivery</Link></li>
-                      <li><Link href="#">Next morning delivery before 9 am</Link></li>
-                      <li><Link href="#">Next morning delivery before 10 am</Link></li>
-                      <li><Link href="#">Next morning delivery before 12 pm</Link></li>
-                      <li><Link href="#">Saturday parcel delivery</Link></li>
-                      <li><Link href="#">Sunday parcel delivery</Link></li>
-                      <li><Link href="#">Expedited parcel delivery</Link></li>
-                      <li><Link href="#">Overnight courier service</Link></li>
-                      <li><Link href="#">Ebay courier service</Link></li>
-                      <li><Link href="#">Bike courier service</Link></li>
-                      <li><Link href="#">Motorbike courier service</Link></li>
-                      <li><Link href="#">Service updates</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">International parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Domestic UK delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Large parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Heavy parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Long parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Small parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Courier parcel collection</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel drop off</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Pallet delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Recorded delivery service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Same day courier service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next day parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 9 am</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 10 am</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 12 pm</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Saturday parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Sunday parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Expedited parcel delivery</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Overnight courier service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Ebay courier service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Bike courier service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Motorbike courier service</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Service updates</Link></li>
                     </ul>
                   </div>
 
@@ -178,14 +173,14 @@ export default function Navbar() {
                       INTERNATIONAL SHIPPING DESTINATIONS
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li><Link href="#">Europe</Link></li>
-                      <li><Link href="#">North & Central America</Link></li>
-                      <li><Link href="#">South America</Link></li>
-                      <li><Link href="#">Asia</Link></li>
-                      <li><Link href="#">Middle East</Link></li>
-                      <li><Link href="#">Africa</Link></li>
-                      <li><Link href="#">Oceania</Link></li>
-                      <li><Link href="#">Caribbean</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Europe</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">North & Central America</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">South America</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Asia</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Middle East</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Africa</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Oceania</Link></li>
+                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Caribbean</Link></li>
                     </ul>
                   </div>
                 </div>
