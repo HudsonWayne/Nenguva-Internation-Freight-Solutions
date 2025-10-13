@@ -7,14 +7,35 @@ import { User, Mail, Lock } from "lucide-react";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Registration functionality coming soon!");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        alert("✅ Registered successfully! You can now log in.");
+        window.location.href = "/login";
+      } else {
+        const data = await res.json();
+        alert("❌ " + (data.error || "Registration failed"));
+      }
+    } catch (err) {
+      alert("⚠️ Registration failed. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,7 +67,8 @@ export default function RegisterPage() {
             Create Account
           </h1>
           <p className="text-center text-gray-500 mb-8">
-            Register with <span className="font-semibold">Nenguva International Freight</span>
+            Register with{" "}
+            <span className="font-semibold">Nenguva International Freight</span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -96,9 +118,14 @@ export default function RegisterPage() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
+              disabled={loading}
+              className={`w-full py-3 rounded-xl font-semibold transition duration-300 shadow-lg ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white"
+              }`}
             >
-              Register
+              {loading ? "Registering..." : "Register"}
             </motion.button>
           </form>
 
