@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [trackingOpen, setTrackingOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
 
@@ -35,6 +34,7 @@ export default function Navbar() {
           } absolute md:static top-16 left-0 w-full md:w-auto bg-purple-700 md:flex md:space-x-6 shadow-md md:shadow-none p-4 md:p-0`}
         >
           <ul className="space-y-4 md:space-y-0 md:flex md:items-center md:gap-6">
+            {/* Home */}
             <li>
               <Link
                 href="/"
@@ -55,6 +55,8 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
+
+            {/* Send Parcels */}
             <li>
               <Link
                 href="/send-parcels"
@@ -66,44 +68,24 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Tracking */}
-            <li className="relative">
-              <button
+            {/* Tracking (fixed to go to tracking page) */}
+            <li>
+              <Link
+                href="/tracking"
                 className={`hover:text-yellow-300 ${
-                  isActive("/tracking.php") ? "text-yellow-400" : ""
+                  isActive("/tracking") ? "text-yellow-400" : ""
                 }`}
-                onClick={() => setTrackingOpen(!trackingOpen)}
               >
                 Tracking
-              </button>
-              {trackingOpen && (
-                <div className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 text-gray-700">
-                  <form action="/tracking.php" method="post" className="space-y-2">
-                    <h3 className="font-semibold text-gray-800 text-sm">
-                      Track Your Parcel
-                    </h3>
-                    <input
-                      type="text"
-                      name="tracking"
-                      placeholder="PM_#######_#######"
-                      className="w-full border rounded px-2 py-1 text-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-purple-700 text-white py-1 rounded text-sm hover:bg-purple-800"
-                    >
-                      Track Now
-                    </button>
-                  </form>
-                </div>
-              )}
+              </Link>
             </li>
 
             {/* Services */}
             <li className="relative">
               <button
                 className={`hover:text-yellow-300 ${
-                  pathname.startsWith("/courier-services") || pathname === "/delivery-services"
+                  pathname.startsWith("/courier-services") ||
+                  pathname === "/delivery-services"
                     ? "text-yellow-400"
                     : ""
                 }`}
@@ -228,31 +210,41 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* Static Links */}
+            {/* Reviews */}
             <li>
               <Link
                 href="/reviews.php"
-                className={`hover:text-yellow-300 ${isActive("/reviews.php") ? "text-yellow-400" : ""}`}
+                className={`hover:text-yellow-300 ${
+                  isActive("/reviews.php") ? "text-yellow-400" : ""
+                }`}
               >
                 Reviews
               </Link>
             </li>
+
+            {/* Rewards */}
             <li>
               <Link
                 href="/my-rewards"
-                className={`hover:text-yellow-300 ${isActive("/my-rewards") ? "text-yellow-400" : ""}`}
+                className={`hover:text-yellow-300 ${
+                  isActive("/my-rewards") ? "text-yellow-400" : ""
+                }`}
               >
                 Rewards
               </Link>
             </li>
+
+            {/* Contact */}
             <li className="flex items-center gap-2">
               <Link
                 href="/contactus4.php"
-                className={`hover:text-yellow-300 ${isActive("/contactus4.php") ? "text-yellow-400" : ""}`}
+                className={`hover:text-yellow-300 ${
+                  isActive("/contactus4.php") ? "text-yellow-400" : ""
+                }`}
               >
                 Contact Us
               </Link>
-              {/* Cart icon after Contact */}
+              {/* Cart Icon */}
               <span className="inline-block align-middle" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -271,15 +263,19 @@ export default function Navbar() {
               </span>
             </li>
 
-            {/* Login & Signup */}
+            {/* Login */}
             <li>
               <Link
                 href="/login.php"
-                className={`hover:text-yellow-300 ${isActive("/login.php") ? "text-yellow-400" : ""}`}
+                className={`hover:text-yellow-300 ${
+                  isActive("/login.php") ? "text-yellow-400" : ""
+                }`}
               >
                 Log In
               </Link>
             </li>
+
+            {/* Signup */}
             <li>
               <Link
                 href="/register.php"
