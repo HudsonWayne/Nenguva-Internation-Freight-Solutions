@@ -7,10 +7,9 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [guidesOpen, setGuidesOpen] = useState(false);
 
   const pathname = usePathname();
-  const isActive = (href) => pathname === href;
+  const isActive = (href: string) => pathname === href;
 
   return (
     <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
@@ -18,7 +17,7 @@ export default function Navbar() {
         {/* Logo */}
         <h1 className="text-xl font-bold">Nenguva</h1>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-sm text-white border border-white px-3 py-1 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -69,7 +68,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Services Mega Menu */}
+            {/* Services Dropdown */}
             <li
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -83,176 +82,123 @@ export default function Navbar() {
                 Services
               </button>
 
+              {/* Gray background overlay */}
               {servicesOpen && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-[1000px] bg-purple-800 text-white p-8 rounded-2xl shadow-2xl grid grid-cols-4 gap-8 z-50">
-                  {/* Column 1 */}
+                <div className="fixed inset-0 bg-gray-800 bg-opacity-40 z-40"></div>
+              )}
+
+              {/* Mega Menu */}
+              {servicesOpen && (
+                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
+                  {/* 1️⃣ Courier Companies */}
                   <div>
-                    <h3 className="font-bold uppercase mb-3 text-sm border-b border-purple-600 pb-1">
-                      Courier Companies
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      COURIER COMPANIES
                     </h3>
-                    <ul className="space-y-1 text-sm">
-                      <li>DPD</li>
-                      <li>DHL</li>
-                      <li>DX</li>
-                      <li>UPS</li>
-                      <li>FedEx Express</li>
-                      <li>Parcelforce</li>
-                      <li>Evri</li>
-                      <li>Yodel Direct</li>
-                      <li>CitySprint</li>
+                    <ul className="space-y-2 text-sm">
+                      <li><Link href="#">DPD</Link></li>
+                      <li><Link href="#">DX</Link></li>
+                      <li><Link href="#">DHL</Link></li>
+                      <li><Link href="#">Parcelforce</Link></li>
+                      <li><Link href="#">Parcel Monkey International</Link></li>
+                      <li><Link href="#">CitySprint</Link></li>
+                      <li><Link href="#">UPS</Link></li>
+                      <li><Link href="#">FedEx Express</Link></li>
+                      <li><Link href="#">Yodel Direct</Link></li>
+                      <li><Link href="#">Evri</Link></li>
+                      <li><Link href="#">DeliveryApp</Link></li>
                     </ul>
                   </div>
 
-                  {/* Column 2 */}
+                  {/* 2️⃣ Courier Services */}
                   <div>
-                    <h3 className="font-bold uppercase mb-3 text-sm border-b border-purple-600 pb-1">
-                      Courier Services
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      COURIER SERVICES
                     </h3>
-                    <ul className="space-y-1 text-sm">
-                      <li>DHL Parcel UK</li>
-                      <li>DPD Air Express</li>
-                      <li>DPD Classic</li>
-                      <li>DX Freight</li>
-                      <li>Evri Collection</li>
-                      <li>Evri Drop Off</li>
-                      <li>Parcel Monkey Air Express</li>
-                      <li>Parcelforce 24</li>
-                      <li>Yodel Direct Drop Off</li>
+                    <ul className="space-y-2 text-sm">
+                      <li><Link href="#">DHL Parcel UK</Link></li>
+                      <li><Link href="#">DPD Air Classic</Link></li>
+                      <li><Link href="#">DPD Air Express</Link></li>
+                      <li><Link href="#">DPD Classic</Link></li>
+                      <li><Link href="#">DPD Drop Off</Link></li>
+                      <li><Link href="#">DX Freight</Link></li>
+                      <li><Link href="#">Evri Collection</Link></li>
+                      <li><Link href="#">Evri Drop Off</Link></li>
+                      <li><Link href="#">Evri International Collection</Link></li>
+                      <li><Link href="#">Evri International Drop Off</Link></li>
+                      <li><Link href="#">FedEx International Economy Drop Off</Link></li>
+                      <li><Link href="#">FedEx International Priority Drop Off</Link></li>
+                      <li><Link href="#">FedEx Next Day Drop Off</Link></li>
+                      <li><Link href="#">FedEx Regional Economy Drop Off</Link></li>
+                      <li><Link href="#">Parcel Monkey Air Express</Link></li>
+                      <li><Link href="#">Parcel Monkey Europe By Road</Link></li>
+                      <li><Link href="#">Parcelforce 24</Link></li>
+                      <li><Link href="#">Parcelforce 48</Link></li>
+                      <li><Link href="#">Parcelforce 48 Large</Link></li>
+                      <li><Link href="#">Parcelforce Global Priority</Link></li>
+                      <li><Link href="#">Yodel Direct Economy Drop Off</Link></li>
                     </ul>
                   </div>
 
-                  {/* Column 3 */}
+                  {/* 3️⃣ Parcel Delivery Services */}
                   <div>
-                    <h3 className="font-bold uppercase mb-3 text-sm border-b border-purple-600 pb-1">
-                      Parcel Delivery Services
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      PARCEL DELIVERY SERVICES
                     </h3>
-                    <ul className="space-y-1 text-sm">
-                      <li>International Delivery</li>
-                      <li>Domestic UK Delivery</li>
-                      <li>Large Parcel Delivery</li>
-                      <li>Heavy Parcel Delivery</li>
-                      <li>Next Day Delivery</li>
-                      <li>Weekend Delivery</li>
-                      <li>Recorded Delivery</li>
-                      <li>Same Day Courier</li>
+                    <ul className="space-y-2 text-sm">
+                      <li><Link href="#">International parcel delivery</Link></li>
+                      <li><Link href="#">Domestic UK delivery</Link></li>
+                      <li><Link href="#">Large parcel delivery</Link></li>
+                      <li><Link href="#">Heavy parcel delivery</Link></li>
+                      <li><Link href="#">Long parcel delivery</Link></li>
+                      <li><Link href="#">Small parcel delivery</Link></li>
+                      <li><Link href="#">Courier parcel collection</Link></li>
+                      <li><Link href="#">Parcel drop off</Link></li>
+                      <li><Link href="#">Pallet delivery</Link></li>
+                      <li><Link href="#">Recorded delivery service</Link></li>
+                      <li><Link href="#">Same day courier service</Link></li>
+                      <li><Link href="#">Next day parcel delivery</Link></li>
+                      <li><Link href="#">Next morning delivery before 9 am</Link></li>
+                      <li><Link href="#">Next morning delivery before 10 am</Link></li>
+                      <li><Link href="#">Next morning delivery before 12 pm</Link></li>
+                      <li><Link href="#">Saturday parcel delivery</Link></li>
+                      <li><Link href="#">Sunday parcel delivery</Link></li>
+                      <li><Link href="#">Expedited parcel delivery</Link></li>
+                      <li><Link href="#">Overnight courier service</Link></li>
+                      <li><Link href="#">Ebay courier service</Link></li>
+                      <li><Link href="#">Bike courier service</Link></li>
+                      <li><Link href="#">Motorbike courier service</Link></li>
+                      <li><Link href="#">Service updates</Link></li>
                     </ul>
                   </div>
 
-                  {/* Column 4 */}
+                  {/* 4️⃣ International Shipping Destinations */}
                   <div>
-                    <h3 className="font-bold uppercase mb-3 text-sm border-b border-purple-600 pb-1">
-                      International Shipping
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      INTERNATIONAL SHIPPING DESTINATIONS
                     </h3>
-                    <ul className="space-y-1 text-sm">
-                      <li>Europe</li>
-                      <li>North America</li>
-                      <li>South America</li>
-                      <li>Asia</li>
-                      <li>Africa</li>
-                      <li>Middle East</li>
-                      <li>Oceania</li>
+                    <ul className="space-y-2 text-sm">
+                      <li><Link href="#">Europe</Link></li>
+                      <li><Link href="#">North & Central America</Link></li>
+                      <li><Link href="#">South America</Link></li>
+                      <li><Link href="#">Asia</Link></li>
+                      <li><Link href="#">Middle East</Link></li>
+                      <li><Link href="#">Africa</Link></li>
+                      <li><Link href="#">Oceania</Link></li>
+                      <li><Link href="#">Caribbean</Link></li>
                     </ul>
                   </div>
                 </div>
               )}
             </li>
 
-            {/* Guides Dropdown */}
-            <li
-              className="relative"
-              onMouseEnter={() => setGuidesOpen(true)}
-              onMouseLeave={() => setGuidesOpen(false)}
-            >
-              <button
-                className={`hover:text-yellow-300 ${
-                  guidesOpen ? "text-yellow-400" : ""
-                }`}
-              >
-                Guides
-              </button>
-              {guidesOpen && (
-                <ul className="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white border rounded-xl shadow-xl p-4 w-64 space-y-2 text-sm text-gray-700">
-                  <li>
-                    <Link href="/delivery-sizes" className="hover:text-purple-700">
-                      Parcel Weight & Size Limits
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/postage-rates" className="hover:text-purple-700">
-                      Postage Rates
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/customs-charges" className="hover:text-purple-700">
-                      Customs Charges
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/multi-parcels" className="hover:text-purple-700">
-                      Sending Multiple Parcels
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            {/* Reviews */}
-            <li>
-              <Link
-                href="/reviews"
-                className={`hover:text-yellow-300 ${
-                  isActive("/reviews") ? "text-yellow-400" : ""
-                }`}
-              >
-                Reviews
-              </Link>
-            </li>
-
-            {/* Rewards */}
-            <li>
-              <Link
-                href="/rewards"
-                className={`hover:text-yellow-300 ${
-                  isActive("/rewards") ? "text-yellow-400" : ""
-                }`}
-              >
-                Rewards
-              </Link>
-            </li>
-
-            {/* Contact */}
-            <li>
-              <Link
-                href="/contact"
-                className={`hover:text-yellow-300 ${
-                  isActive("/contact") ? "text-yellow-400" : ""
-                }`}
-              >
-                Contact Us
-              </Link>
-            </li>
-
-            {/* Login */}
-            <li>
-              <Link
-                href="/login"
-                className={`hover:text-yellow-300 ${
-                  isActive("/login") ? "text-yellow-400" : ""
-                }`}
-              >
-                Log In
-              </Link>
-            </li>
-
-            {/* Signup */}
-            <li>
-              <Link
-                href="/register"
-                className="bg-yellow-400 text-purple-900 px-4 py-1 rounded-lg font-semibold hover:bg-yellow-300"
-              >
-                Sign Up
-              </Link>
-            </li>
+            {/* Other Links */}
+            <li><Link href="#">Guides</Link></li>
+            <li><Link href="#">Reviews</Link></li>
+            <li><Link href="#">Rewards</Link></li>
+            <li><Link href="#">Contact Us</Link></li>
+            <li><Link href="#">Sign Up</Link></li>
+            <li><Link href="#">Log In</Link></li>
           </ul>
         </nav>
       </div>
