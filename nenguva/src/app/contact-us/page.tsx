@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ContactUsPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -36,17 +37,13 @@ export default function ContactUsPage() {
   return (
     <main className="bg-gray-50 min-h-screen py-16">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <h1 className="text-4xl font-bold text-purple-800 text-center mb-6">
-          Contact Us
-        </h1>
+        <h1 className="text-4xl font-bold text-purple-800 text-center mb-6">Contact Us</h1>
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
           Have questions or need assistance? We're here to help. 
           Get in touch with <span className="font-semibold">Nenguva International Freight</span> today.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-semibold text-purple-700 mb-4">Our Contact Details</h2>
             <ul className="space-y-4 text-gray-700">
@@ -73,7 +70,6 @@ export default function ContactUsPage() {
               </li>
             </ul>
 
-            {/* Map */}
             <div className="mt-8">
               <iframe
                 title="Nenguva Location"
@@ -86,7 +82,6 @@ export default function ContactUsPage() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-semibold text-purple-700 mb-4">Send Us a Message</h2>
             {submitted ? (
@@ -146,6 +141,16 @@ export default function ContactUsPage() {
                 >
                   Send Message
                 </button>
+
+                {/* NEW LINKS */}
+                <div className="flex justify-between text-sm text-center mt-6">
+                  <Link href="/register" className="text-purple-600 hover:underline">
+                    Don’t have an account? Register now
+                  </Link>
+                  <Link href="/login" className="text-purple-600 hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
               </form>
             )}
           </div>
