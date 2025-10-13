@@ -92,8 +92,17 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "DPD", "DX", "DHL", "Parcelforce", "Parcel Monkey International",
-                        "CitySprint", "UPS", "FedEx Express", "Yodel Direct", "Evri", "DeliveryApp"
+                        "DPD",
+                        "DX",
+                        "DHL",
+                        "Parcelforce",
+                        "Parcel Monkey International",
+                        "CitySprint",
+                        "UPS",
+                        "FedEx Express",
+                        "Yodel Direct",
+                        "Evri",
+                        "DeliveryApp",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -109,14 +118,27 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "DHL Parcel UK", "DPD Air Classic", "DPD Air Express", "DPD Classic",
-                        "DPD Drop Off", "DX Freight", "Evri Collection", "Evri Drop Off",
-                        "Evri International Collection", "Evri International Drop Off",
-                        "FedEx International Economy Drop Off", "FedEx International Priority Drop Off",
-                        "FedEx Next Day Drop Off", "FedEx Regional Economy Drop Off",
-                        "Parcel Monkey Air Express", "Parcel Monkey Europe By Road", "Parcelforce 24",
-                        "Parcelforce 48", "Parcelforce 48 Large", "Parcelforce Global Priority",
-                        "Yodel Direct Economy Drop Off"
+                        "DHL Parcel UK",
+                        "DPD Air Classic",
+                        "DPD Air Express",
+                        "DPD Classic",
+                        "DPD Drop Off",
+                        "DX Freight",
+                        "Evri Collection",
+                        "Evri Drop Off",
+                        "Evri International Collection",
+                        "Evri International Drop Off",
+                        "FedEx International Economy Drop Off",
+                        "FedEx International Priority Drop Off",
+                        "FedEx Next Day Drop Off",
+                        "FedEx Regional Economy Drop Off",
+                        "Parcel Monkey Air Express",
+                        "Parcel Monkey Europe By Road",
+                        "Parcelforce 24",
+                        "Parcelforce 48",
+                        "Parcelforce 48 Large",
+                        "Parcelforce Global Priority",
+                        "Yodel Direct Economy Drop Off",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -132,15 +154,29 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "International parcel delivery", "Domestic UK delivery", "Large parcel delivery",
-                        "Heavy parcel delivery", "Long parcel delivery", "Small parcel delivery",
-                        "Courier parcel collection", "Parcel drop off", "Pallet delivery",
-                        "Recorded delivery service", "Same day courier service",
-                        "Next day parcel delivery", "Next morning delivery before 9 am",
-                        "Next morning delivery before 10 am", "Next morning delivery before 12 pm",
-                        "Saturday parcel delivery", "Sunday parcel delivery", "Expedited parcel delivery",
-                        "Overnight courier service", "Ebay courier service", "Bike courier service",
-                        "Motorbike courier service", "Service updates"
+                        "International parcel delivery",
+                        "Domestic UK delivery",
+                        "Large parcel delivery",
+                        "Heavy parcel delivery",
+                        "Long parcel delivery",
+                        "Small parcel delivery",
+                        "Courier parcel collection",
+                        "Parcel drop off",
+                        "Pallet delivery",
+                        "Recorded delivery service",
+                        "Same day courier service",
+                        "Next day parcel delivery",
+                        "Next morning delivery before 9 am",
+                        "Next morning delivery before 10 am",
+                        "Next morning delivery before 12 pm",
+                        "Saturday parcel delivery",
+                        "Sunday parcel delivery",
+                        "Expedited parcel delivery",
+                        "Overnight courier service",
+                        "Ebay courier service",
+                        "Bike courier service",
+                        "Motorbike courier service",
+                        "Service updates",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -156,8 +192,14 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "Europe", "North & Central America", "South America", "Asia",
-                        "Middle East", "Africa", "Oceania", "Caribbean"
+                        "Europe",
+                        "North & Central America",
+                        "South America",
+                        "Asia",
+                        "Middle East",
+                        "Africa",
+                        "Oceania",
+                        "Caribbean",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -192,14 +234,21 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "Parcel weight & size limits", "Parcel delivery times", "Postage rates",
-                        "Sending parcels without labels", "Sending high value items",
-                        "Sending multiple parcels", "Customs charges",
-                        "How to weigh & measure parcels", "How to calculate volume",
-                        "How to calculate volumetric weight", "How to calculate length & girth",
+                        "Parcel weight & size limits",
+                        "Parcel delivery times",
+                        "Postage rates",
+                        "Sending parcels without labels",
+                        "Sending high value items",
+                        "Sending multiple parcels",
+                        "Customs charges",
+                        "How to weigh & measure parcels",
+                        "How to calculate volume",
+                        "How to calculate volumetric weight",
+                        "How to calculate length & girth",
                         "How to address a letter or parcel to the USA",
                         "How to address a letter or parcel to Australia",
-                        "What is what3words", "What is PrePay"
+                        "What is what3words",
+                        "What is PrePay",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -215,9 +264,23 @@ export default function Navbar() {
                     </h3>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "Mobile phones", "Alcohol", "Bikes", "Furniture", "Car parts", "Guitars",
-                        "Wheels & tyres", "Books", "Clothing", "Golf clubs", "Mattresses",
-                        "Batteries", "Jewellery", "Fishing rods", "Pushchairs", "Rugs", "Chocolate"
+                        "Mobile phones",
+                        "Alcohol",
+                        "Bikes",
+                        "Furniture",
+                        "Car parts",
+                        "Guitars",
+                        "Wheels & tyres",
+                        "Books",
+                        "Clothing",
+                        "Golf clubs",
+                        "Mattresses",
+                        "Batteries",
+                        "Jewellery",
+                        "Fishing rods",
+                        "Pushchairs",
+                        "Rugs",
+                        "Chocolate",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
                           <Link href="#">{item}</Link>
@@ -230,11 +293,56 @@ export default function Navbar() {
             </li>
 
             {/* Other Links */}
-            <li><Link href="#">Reviews</Link></li>
-            <li><Link href="#">Rewards</Link></li>
-            <li><Link href="#">Contact Us</Link></li>
-            <li><Link href="#">Sign Up</Link></li>
-            <li><Link href="#">Log In</Link></li>
+            <li>
+              <Link
+                href="/reviews"
+                className={`hover:text-yellow-300 ${
+                  isActive("/reviews") ? "text-yellow-400" : ""
+                }`}
+              >
+                Reviews
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/rewards"
+                className={`hover:text-yellow-300 ${
+                  isActive("/rewards") ? "text-yellow-400" : ""
+                }`}
+              >
+                Rewards
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact-us"
+                className={`hover:text-yellow-300 ${
+                  isActive("/contact-us") ? "text-yellow-400" : ""
+                }`}
+              >
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/sign-up"
+                className={`hover:text-yellow-300 ${
+                  isActive("/sign-up") ? "text-yellow-400" : ""
+                }`}
+              >
+                Sign Up
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/login"
+                className={`hover:text-yellow-300 ${
+                  isActive("/login") ? "text-yellow-400" : ""
+                }`}
+              >
+                Log In
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
