@@ -1,13 +1,16 @@
-import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
+    if (!name || !email || !message) {
+      return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
+    }
+
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
       secure: true,
       auth: {
         user: process.env.SMTP_USER,
@@ -18,19 +21,22 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: process.env.CONTACT_RECEIVER,
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `📩 New message from ${name}`,
+      text: message,
       html: `
-        <h3>New Contact Message</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <div style="font-family:sans-serif;line-height:1.6">
+          <h2>New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        </div>
       `,
     });
 
-    return NextResponse.json({ success: true });
+    return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
-    console.error("❌ Error sending email:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    console.error("Error sending email:", error);
+    return new Response(JSON.stringify({ error: "Error sending email" }), { status: 500 });
   }
 }
