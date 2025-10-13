@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
 
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
@@ -82,105 +83,146 @@ export default function Navbar() {
                 Services
               </button>
 
-              {/* Mega Menu */}
               {servicesOpen && (
                 <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
-                  {/* 1️⃣ Courier Companies */}
+                  {/* COURIER COMPANIES */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       COURIER COMPANIES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DX</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DHL</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey International</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">CitySprint</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">UPS</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Express</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Yodel Direct</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DeliveryApp</Link></li>
+                      {[
+                        "DPD", "DX", "DHL", "Parcelforce", "Parcel Monkey International",
+                        "CitySprint", "UPS", "FedEx Express", "Yodel Direct", "Evri", "DeliveryApp"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
-                  {/* 2️⃣ Courier Services */}
+                  {/* COURIER SERVICES */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       COURIER SERVICES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DHL Parcel UK</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Air Classic</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Air Express</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Classic</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DPD Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">DX Freight</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri Collection</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri International Collection</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Evri International Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx International Economy Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx International Priority Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Next Day Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">FedEx Regional Economy Drop Off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey Air Express</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel Monkey Europe By Road</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 24</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 48</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce 48 Large</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcelforce Global Priority</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Yodel Direct Economy Drop Off</Link></li>
+                      {[
+                        "DHL Parcel UK", "DPD Air Classic", "DPD Air Express", "DPD Classic",
+                        "DPD Drop Off", "DX Freight", "Evri Collection", "Evri Drop Off",
+                        "Evri International Collection", "Evri International Drop Off",
+                        "FedEx International Economy Drop Off", "FedEx International Priority Drop Off",
+                        "FedEx Next Day Drop Off", "FedEx Regional Economy Drop Off",
+                        "Parcel Monkey Air Express", "Parcel Monkey Europe By Road", "Parcelforce 24",
+                        "Parcelforce 48", "Parcelforce 48 Large", "Parcelforce Global Priority",
+                        "Yodel Direct Economy Drop Off"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
-                  {/* 3️⃣ Parcel Delivery Services */}
+                  {/* PARCEL DELIVERY SERVICES */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       PARCEL DELIVERY SERVICES
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">International parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Domestic UK delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Large parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Heavy parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Long parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Small parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Courier parcel collection</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Parcel drop off</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Pallet delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Recorded delivery service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Same day courier service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next day parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 9 am</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 10 am</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Next morning delivery before 12 pm</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Saturday parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Sunday parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Expedited parcel delivery</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Overnight courier service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Ebay courier service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Bike courier service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Motorbike courier service</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Service updates</Link></li>
+                      {[
+                        "International parcel delivery", "Domestic UK delivery", "Large parcel delivery",
+                        "Heavy parcel delivery", "Long parcel delivery", "Small parcel delivery",
+                        "Courier parcel collection", "Parcel drop off", "Pallet delivery",
+                        "Recorded delivery service", "Same day courier service",
+                        "Next day parcel delivery", "Next morning delivery before 9 am",
+                        "Next morning delivery before 10 am", "Next morning delivery before 12 pm",
+                        "Saturday parcel delivery", "Sunday parcel delivery", "Expedited parcel delivery",
+                        "Overnight courier service", "Ebay courier service", "Bike courier service",
+                        "Motorbike courier service", "Service updates"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
-                  {/* 4️⃣ International Shipping Destinations */}
+                  {/* INTERNATIONAL SHIPPING DESTINATIONS */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       INTERNATIONAL SHIPPING DESTINATIONS
                     </h3>
                     <ul className="space-y-2 text-sm">
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Europe</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">North & Central America</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">South America</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Asia</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Middle East</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Africa</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Oceania</Link></li>
-                      <li className="hover:bg-gray-600 rounded px-2"><Link href="#">Caribbean</Link></li>
+                      {[
+                        "Europe", "North & Central America", "South America", "Asia",
+                        "Middle East", "Africa", "Oceania", "Caribbean"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* Guides Dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setGuidesOpen(true)}
+              onMouseLeave={() => setGuidesOpen(false)}
+            >
+              <button
+                className={`hover:text-yellow-300 ${
+                  guidesOpen ? "text-yellow-400" : ""
+                }`}
+              >
+                Guides
+              </button>
+
+              {guidesOpen && (
+                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-2 gap-10 px-12 py-8 z-50 w-[60vw] max-w-[1000px]">
+                  {/* Parcel Delivery Guides */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      PARCEL DELIVERY GUIDES
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Parcel weight & size limits", "Parcel delivery times", "Postage rates",
+                        "Sending parcels without labels", "Sending high value items",
+                        "Sending multiple parcels", "Customs charges",
+                        "How to weigh & measure parcels", "How to calculate volume",
+                        "How to calculate volumetric weight", "How to calculate length & girth",
+                        "How to address a letter or parcel to the USA",
+                        "How to address a letter or parcel to Australia",
+                        "What is what3words", "What is PrePay"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Sending Niche Items */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      SENDING NICHE ITEMS
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Mobile phones", "Alcohol", "Bikes", "Furniture", "Car parts", "Guitars",
+                        "Wheels & tyres", "Books", "Clothing", "Golf clubs", "Mattresses",
+                        "Batteries", "Jewellery", "Fishing rods", "Pushchairs", "Rugs", "Chocolate"
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -188,7 +230,6 @@ export default function Navbar() {
             </li>
 
             {/* Other Links */}
-            <li><Link href="#">Guides</Link></li>
             <li><Link href="#">Reviews</Link></li>
             <li><Link href="#">Rewards</Link></li>
             <li><Link href="#">Contact Us</Link></li>
