@@ -323,16 +323,20 @@ export default function Navbar() {
                 Contact Us
               </Link>
             </li>
+
+            {/* Sign Up */}
             <li>
               <Link
-                href="/sign-up"
+                href="/register"
                 className={`hover:text-yellow-300 ${
-                  isActive("/sign-up") ? "text-yellow-400" : ""
+                  isActive("/register") ? "text-yellow-400" : ""
                 }`}
               >
                 Sign Up
               </Link>
             </li>
+
+            {/* Log In */}
             <li>
               <Link
                 href="/login"
