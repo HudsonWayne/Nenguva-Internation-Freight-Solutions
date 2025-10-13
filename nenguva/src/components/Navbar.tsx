@@ -10,16 +10,15 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
 
-  const pathname = usePathname(); // Get current path
-
+  const pathname = usePathname();
   const isActive = (href) => pathname === href;
 
   return (
     <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-4 text-white">
+      <div className="container mx-auto flex items-center justify-between p-4 text-white relative">
         <h1 className="text-xl font-bold">Nenguva</h1>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-sm text-white border border-white px-3 py-1 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -27,7 +26,7 @@ export default function Navbar() {
           {menuOpen ? "Close" : "Menu"}
         </button>
 
-        {/* Nav Links */}
+        {/* Desktop Nav */}
         <nav
           className={`${
             menuOpen ? "block" : "hidden"
@@ -42,13 +41,11 @@ export default function Navbar() {
                   isActive("/") ? "text-yellow-400" : ""
                 }`}
               >
-                {/* Home icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  aria-hidden="true"
                 >
                   <path d="M10.707 1.707a1 1 0 00-1.414 0L2 9v8a1 1 0 001 1h5a1 1 0 001-1V12h2v5a1 1 0 001 1h5a1 1 0 001-1V9l-7.293-7.293z" />
                 </svg>
@@ -68,7 +65,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Tracking (fixed to go to tracking page) */}
+            {/* Tracking */}
             <li>
               <Link
                 href="/tracking"
@@ -80,129 +77,156 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Services */}
-            <li className="relative">
+            {/* Services Mega Menu */}
+            <li
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button
                 className={`hover:text-yellow-300 ${
-                  pathname.startsWith("/courier-services") ||
-                  pathname === "/delivery-services"
-                    ? "text-yellow-400"
-                    : ""
+                  servicesOpen ? "text-yellow-400" : ""
                 }`}
-                onClick={() => setServicesOpen(!servicesOpen)}
               >
                 Services
               </button>
+
               {servicesOpen && (
-                <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
-                  <li>
-                    <Link
-                      href="/courier-services"
-                      className={`hover:text-purple-700 ${
-                        isActive("/courier-services") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                <div className="absolute left-0 mt-2 w-[900px] bg-purple-800 text-white p-6 rounded-lg shadow-2xl grid grid-cols-4 gap-6 z-50">
+                  {/* Courier Companies */}
+                  <div>
+                    <h3 className="font-bold uppercase mb-3 text-sm">
                       Courier Companies
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/courier-services/dhl"
-                      className={`hover:text-purple-700 ${
-                        isActive("/courier-services/dhl") ? "text-yellow-400" : ""
-                      }`}
-                    >
-                      DHL
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/courier-services/dpd"
-                      className={`hover:text-purple-700 ${
-                        isActive("/courier-services/dpd") ? "text-yellow-400" : ""
-                      }`}
-                    >
-                      DPD
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/courier-services/ups"
-                      className={`hover:text-purple-700 ${
-                        isActive("/courier-services/ups") ? "text-yellow-400" : ""
-                      }`}
-                    >
-                      UPS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/delivery-services"
-                      className={`hover:text-purple-700 ${
-                        isActive("/delivery-services") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>DPD</li>
+                      <li>DX</li>
+                      <li>DHL</li>
+                      <li>Parcelforce</li>
+                      <li>Parcel Monkey International</li>
+                      <li>CitySprint</li>
+                      <li>UPS</li>
+                      <li>FedEx Express</li>
+                      <li>Yodel Direct</li>
+                      <li>Evri</li>
+                      <li>DeliveryApp</li>
+                    </ul>
+                  </div>
+
+                  {/* Courier Services */}
+                  <div>
+                    <h3 className="font-bold uppercase mb-3 text-sm">
+                      Courier Services
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>DHL Parcel UK</li>
+                      <li>DPD Air Classic</li>
+                      <li>DPD Air Express</li>
+                      <li>DPD Classic</li>
+                      <li>DPD Drop Off</li>
+                      <li>DX Freight</li>
+                      <li>Evri Collection</li>
+                      <li>Evri Drop Off</li>
+                      <li>Evri International Collection</li>
+                      <li>Evri International Drop Off</li>
+                      <li>FedEx International Economy Drop Off</li>
+                      <li>FedEx International Priority Drop Off</li>
+                      <li>FedEx Next Day Drop Off</li>
+                      <li>FedEx Regional Economy Drop Off</li>
+                      <li>Parcel Monkey Air Express</li>
+                      <li>Parcel Monkey Europe By Road</li>
+                      <li>Parcelforce 24</li>
+                      <li>Parcelforce 48</li>
+                      <li>Parcelforce 48 Large</li>
+                      <li>Parcelforce Global Priority</li>
+                      <li>Yodel Direct Economy Drop Off</li>
+                    </ul>
+                  </div>
+
+                  {/* Parcel Delivery Services */}
+                  <div>
+                    <h3 className="font-bold uppercase mb-3 text-sm">
                       Parcel Delivery Services
-                    </Link>
-                  </li>
-                </ul>
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>International parcel delivery</li>
+                      <li>Domestic UK delivery</li>
+                      <li>Large parcel delivery</li>
+                      <li>Heavy parcel delivery</li>
+                      <li>Long parcel delivery</li>
+                      <li>Small parcel delivery</li>
+                      <li>Courier parcel collection</li>
+                      <li>Parcel drop off</li>
+                      <li>Pallet delivery</li>
+                      <li>Recorded delivery service</li>
+                      <li>Same day courier service</li>
+                      <li>Next day parcel delivery</li>
+                      <li>Next morning delivery before 9 am</li>
+                      <li>Next morning delivery before 10 am</li>
+                      <li>Next morning delivery before 12 pm</li>
+                      <li>Saturday parcel delivery</li>
+                      <li>Sunday parcel delivery</li>
+                      <li>Expedited parcel delivery</li>
+                      <li>Overnight courier service</li>
+                      <li>Ebay courier service</li>
+                      <li>Bike courier service</li>
+                      <li>Motorbike courier service</li>
+                      <li>Service updates</li>
+                    </ul>
+                  </div>
+
+                  {/* International Shipping Destinations */}
+                  <div>
+                    <h3 className="font-bold uppercase mb-3 text-sm">
+                      International Shipping Destinations
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>Europe</li>
+                      <li>North & Central America</li>
+                      <li>South America</li>
+                      <li>Asia</li>
+                      <li>Middle East</li>
+                      <li>Africa</li>
+                      <li>Oceania</li>
+                      <li>Caribbean</li>
+                    </ul>
+                  </div>
+                </div>
               )}
             </li>
 
-            {/* Guides */}
-            <li className="relative">
+            {/* Guides Dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setGuidesOpen(true)}
+              onMouseLeave={() => setGuidesOpen(false)}
+            >
               <button
                 className={`hover:text-yellow-300 ${
-                  pathname.startsWith("/delivery-sizes") ||
-                  pathname.startsWith("/postage-rates") ||
-                  pathname.startsWith("/customs-charges") ||
-                  pathname.startsWith("/multi-parcels")
-                    ? "text-yellow-400"
-                    : ""
+                  guidesOpen ? "text-yellow-400" : ""
                 }`}
-                onClick={() => setGuidesOpen(!guidesOpen)}
               >
                 Guides
               </button>
               {guidesOpen && (
                 <ul className="absolute left-0 mt-2 bg-white border rounded-lg shadow-lg p-4 w-64 space-y-1 text-sm text-gray-700">
                   <li>
-                    <Link
-                      href="/delivery-sizes"
-                      className={`hover:text-purple-700 ${
-                        isActive("/delivery-sizes") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                    <Link href="/delivery-sizes" className="hover:text-purple-700">
                       Parcel Weight & Size Limits
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/postage-rates"
-                      className={`hover:text-purple-700 ${
-                        isActive("/postage-rates") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                    <Link href="/postage-rates" className="hover:text-purple-700">
                       Postage Rates
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/customs-charges"
-                      className={`hover:text-purple-700 ${
-                        isActive("/customs-charges") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                    <Link href="/customs-charges" className="hover:text-purple-700">
                       Customs Charges
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/multi-parcels"
-                      className={`hover:text-purple-700 ${
-                        isActive("/multi-parcels") ? "text-yellow-400" : ""
-                      }`}
-                    >
+                    <Link href="/multi-parcels" className="hover:text-purple-700">
                       Sending Multiple Parcels
                     </Link>
                   </li>
@@ -234,8 +258,8 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Contact */}
-            <li className="flex items-center gap-2">
+            {/* Contact Us */}
+            <li>
               <Link
                 href="/contactus4.php"
                 className={`hover:text-yellow-300 ${
@@ -244,26 +268,9 @@ export default function Navbar() {
               >
                 Contact Us
               </Link>
-              {/* Cart Icon */}
-              <span className="inline-block align-middle" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-              </span>
             </li>
 
-            {/* Login */}
+            {/* Log In */}
             <li>
               <Link
                 href="/login.php"
@@ -275,7 +282,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Signup */}
+            {/* Sign Up */}
             <li>
               <Link
                 href="/register.php"
