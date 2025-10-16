@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
+import { User } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
-
   const pathname = usePathname();
+
+  const { data: session } = useSession(); // ✅ Get logged-in user info
+
   const isActive = (href: string) => pathname === href;
 
   return (
@@ -324,29 +328,46 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Sign Up */}
-            <li>
-              <Link
-                href="/register"
-                className={`hover:text-yellow-300 ${
-                  isActive("/register") ? "text-yellow-400" : ""
-                }`}
-              >
-                Sign Up
-              </Link>
-            </li>
-
-            {/* Log In */}
-            <li>
-              <Link
-                href="/login"
-                className={`hover:text-yellow-300 ${
-                  isActive("/login") ? "text-yellow-400" : ""
-                }`}
-              >
-                Log In
-              </Link>
-            </li>
+            {/* ✅ Auth Section */}
+            {session ? (
+              <>
+                {/* Profile Icon */}
+                <li className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
+                    {session.user?.name?.charAt(0) || "U"}
+                  </div>
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    className="hover:text-yellow-300 font-medium"
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    href="/register"
+                    className={`hover:text-yellow-300 ${
+                      isActive("/register") ? "text-yellow-400" : ""
+                    }`}
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/login"
+                    className={`hover:text-yellow-300 ${
+                      isActive("/login") ? "text-yellow-400" : ""
+                    }`}
+                  >
+                    Log In
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>
