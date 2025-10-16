@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,6 +18,7 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     try {
       const res = await fetch("/api/register", {
@@ -29,49 +32,49 @@ export default function RegisterPage() {
         window.location.href = "/login";
       } else {
         const data = await res.json();
-        alert("❌ " + (data.error || "Registration failed"));
+        setError(data.error || "Registration failed");
       }
-    } catch (err) {
-      alert("⚠️ Registration failed. Try again.");
+    } catch {
+      setError("⚠️ Registration failed. Try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-800 px-4 sm:px-8 py-16">
+    <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 px-4 sm:px-8 py-16 animate-gradient">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-10 w-full max-w-5xl border border-white/20 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 md:space-y-0"
+        transition={{ duration: 0.8 }}
+        className="bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 w-full max-w-5xl border border-white/30 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 md:space-y-0"
       >
-        {/* Left side illustration */}
-        <div className="hidden md:flex flex-col items-center justify-center w-1/2 space-y-4">
+        {/* Left Illustration */}
+        <div className="hidden md:flex flex-col items-center justify-center w-1/2 space-y-6">
           <img
             src="https://cdn3d.iconscout.com/3d/premium/thumb/signup-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--sign-up-registration-illustrations-pack-people-illustrations-4642171.png"
             alt="Register Illustration"
-            className="w-80 h-auto drop-shadow-lg"
+            className="w-80 h-auto drop-shadow-2xl transform hover:scale-105 transition duration-500"
           />
-          <h2 className="text-2xl font-semibold text-purple-700 text-center">
+          <h2 className="text-2xl font-bold text-purple-700 text-center animate-fadeIn">
             Join the Nenguva Family
           </h2>
-          <p className="text-center text-gray-500 px-4">
+          <p className="text-center text-gray-600 px-4">
             Sign up and start shipping smarter and faster today.
           </p>
         </div>
 
-        {/* Right side form */}
+        {/* Right Form */}
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">
+          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2 animate-fadeIn">
             Create Account
           </h1>
-          <p className="text-center text-gray-500 mb-8">
+          <p className="text-center text-gray-600 mb-8">
             Register with{" "}
-            <span className="font-semibold">Nenguva International Freight</span>
+            <span className="font-semibold text-purple-800">Nenguva International Freight</span>
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="relative">
               <User className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -82,7 +85,7 @@ export default function RegisterPage() {
                 placeholder="Full Name"
                 value={form.name}
                 onChange={handleChange}
-                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400"
+                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400 hover:shadow-md transition duration-300"
               />
             </div>
 
@@ -96,7 +99,7 @@ export default function RegisterPage() {
                 placeholder="Email Address"
                 value={form.email}
                 onChange={handleChange}
-                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400"
+                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400 hover:shadow-md transition duration-300"
               />
             </div>
 
@@ -105,24 +108,32 @@ export default function RegisterPage() {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 placeholder="Password"
                 value={form.password}
                 onChange={handleChange}
-                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400"
+                className="pl-10 pr-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400 hover:shadow-md transition duration-300"
               />
+              <div
+                className="absolute right-3 top-3.5 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </div>
             </div>
 
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-xl font-semibold transition duration-300 shadow-lg ${
+              className={`w-full py-3 rounded-xl font-semibold text-white shadow-lg transition-all duration-300 ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white"
+                  : "bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800"
               }`}
             >
               {loading ? "Registering..." : "Register"}
@@ -130,7 +141,10 @@ export default function RegisterPage() {
           </form>
 
           <div className="text-center mt-6">
-            <Link href="/login" className="text-purple-700 hover:underline font-medium">
+            <Link
+              href="/login"
+              className="text-purple-700 hover:text-purple-900 hover:underline font-medium transition-colors duration-300"
+            >
               Already have an account? Log in
             </Link>
           </div>
