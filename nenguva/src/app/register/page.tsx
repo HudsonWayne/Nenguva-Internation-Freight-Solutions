@@ -75,6 +75,7 @@ export default function RegisterPage() {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Name Input */}
             <div className="relative">
               <User className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -89,6 +90,7 @@ export default function RegisterPage() {
               />
             </div>
 
+            {/* Email Input */}
             <div className="relative">
               <Mail className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -103,6 +105,7 @@ export default function RegisterPage() {
               />
             </div>
 
+            {/* Password Input */}
             <div className="relative">
               <Lock className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -123,8 +126,10 @@ export default function RegisterPage() {
               </div>
             </div>
 
+            {/* Error Message */}
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
+            {/* Submit Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
