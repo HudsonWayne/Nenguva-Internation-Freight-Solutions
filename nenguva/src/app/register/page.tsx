@@ -27,12 +27,13 @@ export default function RegisterPage() {
         body: JSON.stringify(form),
       });
 
-      if (res.ok) {
-        alert("✅ Registered successfully! You can now log in.");
-        window.location.href = "/login";
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error);
       } else {
-        const data = await res.json();
-        setError(data.error || "Registration failed");
+        alert("✅ Registered successfully! Redirecting to login...");
+        window.location.href = "/login";
       }
     } catch {
       setError("⚠️ Registration failed. Try again.");
@@ -42,7 +43,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 px-4 sm:px-8 py-16 animate-gradient">
+    <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 px-4 sm:px-8 py-16">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -56,7 +57,7 @@ export default function RegisterPage() {
             alt="Register Illustration"
             className="w-80 h-auto drop-shadow-2xl transform hover:scale-105 transition duration-500"
           />
-          <h2 className="text-2xl font-bold text-purple-700 text-center animate-fadeIn">
+          <h2 className="text-2xl font-bold text-purple-700 text-center">
             Join the Nenguva Family
           </h2>
           <p className="text-center text-gray-600 px-4">
@@ -66,7 +67,7 @@ export default function RegisterPage() {
 
         {/* Right Form */}
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2 animate-fadeIn">
+          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">
             Create Account
           </h1>
           <p className="text-center text-gray-600 mb-8">
@@ -75,7 +76,6 @@ export default function RegisterPage() {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name Input */}
             <div className="relative">
               <User className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -90,7 +90,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Email Input */}
             <div className="relative">
               <Mail className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -105,7 +104,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Password Input */}
             <div className="relative">
               <Lock className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -126,10 +124,8 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Error Message */}
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
-            {/* Submit Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
