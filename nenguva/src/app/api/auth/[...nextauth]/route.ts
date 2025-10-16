@@ -14,7 +14,6 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         await connectDB();
-
         const user = await User.findOne({ email: credentials?.email });
         if (!user) throw new Error("No user found with that email");
 
@@ -25,12 +24,8 @@ const handler = NextAuth({
       },
     }),
   ],
-  session: {
-    strategy: "jwt",
-  },
-  pages: {
-    signIn: "/login",
-  },
+  session: { strategy: "jwt" },
+  pages: { signIn: "/login" },
   secret: process.env.NEXTAUTH_SECRET,
 });
 
