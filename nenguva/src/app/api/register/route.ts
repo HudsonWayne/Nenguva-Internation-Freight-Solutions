@@ -1,28 +1,37 @@
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
-import bcrypt from "bcryptjs";
 
-export async function POST(req: Request) {
-  try {
-    const { name, email, password } = await req.json();
+const handler = NextAuth({
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        await connectDB();
 
-    if (!name || !email || !password) {
-      return new Response(JSON.stringify({ error: "Missing fields" }), { status: 400 });
-    }
+        const user = await User.findOne({ email: credentials?.email });
+        if (!user) throw new Error("No user found with that email");
 
-    await connectDB();
+        const isValid = await bcrypt.compare(credentials!.password, user.password);
+        if (!isValid) throw new Error("Invalid password");
 
-    const existing = await User.findOne({ email });
-    if (existing) {
-      return new Response(JSON.stringify({ error: "User already exists" }), { status: 400 });
-    }
+        return { id: user._id.toString(), name: user.name, email: user.email };
+      },
+    }),
+  ],
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/login",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+});
 
-    const hashed = await bcrypt.hash(password, 10);
-    await User.create({ name, email, password: hashed });
-
-    return new Response(JSON.stringify({ message: "User registered!" }), { status: 201 });
-  } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: "Error registering user" }), { status: 500 });
-  }
-}
+export { handler as GET, handler as POST };
