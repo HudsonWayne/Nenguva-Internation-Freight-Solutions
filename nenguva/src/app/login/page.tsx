@@ -101,3 +101,69 @@ export default function LoginPage() {
     </main>
   );
 }
+"use client";
+
+import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (res?.error) setError(res.error);
+    else router.push("/");
+
+    setLoading(false);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white/80 p-10 rounded-xl shadow-xl w-full max-w-md"
+      >
+        <h1 className="text-2xl font-bold mb-5 text-center text-purple-700">Login</h1>
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full mb-4 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full mb-4 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+        />
+
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-700 to-indigo-700 text-white font-semibold hover:from-purple-800 hover:to-indigo-800 transition-all duration-300"
+        >
+          {loading ? "Logging in..." : "Login"}
+        </button>
+      </form>
+    </div>
+  );
+}
