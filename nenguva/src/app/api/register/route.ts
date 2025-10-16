@@ -1,3 +1,4 @@
+// app/api/register/route.ts
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
@@ -7,22 +8,22 @@ export async function POST(req: Request) {
     const { name, email, password } = await req.json();
 
     if (!name || !email || !password) {
-      return new Response(JSON.stringify({ error: "Missing fields" }), { status: 400 });
+      return Response.json({ error: "Please fill all fields" }, { status: 400 });
     }
 
     await connectDB();
 
-    const existing = await User.findOne({ email });
-    if (existing) {
-      return new Response(JSON.stringify({ error: "User already exists" }), { status: 400 });
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return Response.json({ error: "User already exists" }, { status: 400 });
     }
 
-    const hashed = await bcrypt.hash(password, 10);
-    await User.create({ name, email, password: hashed });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await User.create({ name, email, password: hashedPassword });
 
-    return new Response(JSON.stringify({ message: "User registered!" }), { status: 201 });
+    return Response.json({ message: "User registered successfully!" }, { status: 201 });
   } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: "Error registering user" }), { status: 500 });
+    console.error("Error registering user:", error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }

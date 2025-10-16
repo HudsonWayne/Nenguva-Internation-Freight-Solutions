@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { User, Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,10 +31,13 @@ export default function RegisterPage() {
 
       const data = await res.json();
 
-      if (!res.ok) setError(data.error);
-      else {
-        alert("✅ Registered successfully! Redirecting to login...");
-        window.location.href = "/login";
+      if (!res.ok) {
+        setError(data.error);
+      } else {
+        // Wait a moment for a nice transition
+        setTimeout(() => {
+          router.push("/login");
+        }, 1000);
       }
     } catch {
       setError("⚠️ Registration failed. Try again.");
@@ -49,6 +54,7 @@ export default function RegisterPage() {
         transition={{ duration: 0.8 }}
         className="bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 w-full max-w-5xl border border-white/30 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 md:space-y-0"
       >
+        {/* Left Illustration */}
         <div className="hidden md:flex flex-col items-center justify-center w-1/2 space-y-6">
           <img
             src="https://cdn3d.iconscout.com/3d/premium/thumb/signup-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--sign-up-registration-illustrations-pack-people-illustrations-4642171.png"
@@ -61,6 +67,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
+        {/* Registration Form */}
         <div className="w-full md:w-1/2">
           <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">Create Account</h1>
           <p className="text-center text-gray-600 mb-8">
@@ -116,20 +123,29 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-sm text-center animate-pulse">{error}</p>
+            )}
 
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: loading ? 1 : 1.05 }}
               whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-xl font-semibold text-white shadow-lg transition-all duration-300 ${
+              className={`w-full py-3 rounded-xl font-semibold text-white shadow-lg flex items-center justify-center gap-2 transition-all duration-300 ${
                 loading
-                  ? "bg-gray-400 cursor-not-allowed"
+                  ? "bg-gradient-to-r from-gray-400 to-gray-500 cursor-not-allowed"
                   : "bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800"
               }`}
             >
-              {loading ? "Registering..." : "Register"}
+              {loading ? (
+                <>
+                  <Loader2 className="animate-spin" size={20} />
+                  Creating account...
+                </>
+              ) : (
+                "Register"
+              )}
             </motion.button>
           </form>
 
