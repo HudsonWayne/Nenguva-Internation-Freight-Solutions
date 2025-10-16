@@ -29,9 +29,8 @@ export default function RegisterPage() {
 
       const data = await res.json();
 
-      if (!res.ok) {
-        setError(data.error);
-      } else {
+      if (!res.ok) setError(data.error);
+      else {
         alert("✅ Registered successfully! Redirecting to login...");
         window.location.href = "/login";
       }
@@ -50,29 +49,22 @@ export default function RegisterPage() {
         transition={{ duration: 0.8 }}
         className="bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 w-full max-w-5xl border border-white/30 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 md:space-y-0"
       >
-        {/* Left Illustration */}
         <div className="hidden md:flex flex-col items-center justify-center w-1/2 space-y-6">
           <img
             src="https://cdn3d.iconscout.com/3d/premium/thumb/signup-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--sign-up-registration-illustrations-pack-people-illustrations-4642171.png"
             alt="Register Illustration"
             className="w-80 h-auto drop-shadow-2xl transform hover:scale-105 transition duration-500"
           />
-          <h2 className="text-2xl font-bold text-purple-700 text-center">
-            Join the Nenguva Family
-          </h2>
+          <h2 className="text-2xl font-bold text-purple-700 text-center">Join the Nenguva Family</h2>
           <p className="text-center text-gray-600 px-4">
             Sign up and start shipping smarter and faster today.
           </p>
         </div>
 
-        {/* Right Form */}
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">
-            Create Account
-          </h1>
+          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">Create Account</h1>
           <p className="text-center text-gray-600 mb-8">
-            Register with{" "}
-            <span className="font-semibold text-purple-800">Nenguva International Freight</span>
+            Register with <span className="font-semibold text-purple-800">Nenguva International Freight</span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -142,10 +134,7 @@ export default function RegisterPage() {
           </form>
 
           <div className="text-center mt-6">
-            <Link
-              href="/login"
-              className="text-purple-700 hover:text-purple-900 hover:underline font-medium transition-colors duration-300"
-            >
+            <Link href="/login" className="text-purple-700 hover:text-purple-900 hover:underline font-medium">
               Already have an account? Log in
             </Link>
           </div>
