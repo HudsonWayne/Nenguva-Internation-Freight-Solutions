@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -18,16 +19,21 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    const res = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
 
-    if (res?.error) {
-      setError(res.error);
-    } else {
-      router.push("/"); // Redirect to homepage after login
+      if (res?.error) {
+        setError("Invalid email or password");
+      } else {
+        router.push("/"); // Redirect to homepage
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong. Please try again.");
     }
 
     setLoading(false);
@@ -62,10 +68,12 @@ export default function LoginPage() {
             Log In
           </h1>
           <p className="text-center text-gray-500 mb-8">
-            Continue to <span className="font-semibold">Nenguva International Freight</span>
+            Continue to{" "}
+            <span className="font-semibold">Nenguva International Freight</span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Email */}
             <div className="relative">
               <Mail className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -79,6 +87,7 @@ export default function LoginPage() {
               />
             </div>
 
+            {/* Password */}
             <div className="relative">
               <Lock className="absolute left-3 top-3.5 text-gray-400" size={20} />
               <input
@@ -92,8 +101,10 @@ export default function LoginPage() {
               />
             </div>
 
+            {/* Error message */}
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
+            {/* Submit button */}
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -107,11 +118,18 @@ export default function LoginPage() {
             </motion.button>
           </form>
 
+          {/* Links */}
           <div className="text-center mt-6 space-y-2">
-            <Link href="/register" className="text-purple-700 hover:underline block font-medium">
+            <Link
+              href="/register"
+              className="text-purple-700 hover:underline block font-medium"
+            >
               Don’t have an account? Register now
             </Link>
-            <Link href="/forgot-password" className="text-purple-600 hover:underline block">
+            <Link
+              href="/forgot-password"
+              className="text-purple-600 hover:underline block"
+            >
               Forgot your password?
             </Link>
           </div>
