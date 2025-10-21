@@ -1,4 +1,4 @@
-"use client"; // ⚠️ This is required at the top for hooks like useState
+"use client"; // ⚠️ Required for useState and other hooks
 
 import { useState } from "react";
 
@@ -59,7 +59,7 @@ export default function BookPage() {
         id="addressForm"
         method="post"
         action="https://www.parcelmonkey.co.uk/quotev3.php?sub=address"
-        className="form space-y-6"
+        className="space-y-6"
         onSubmit={handleSubmit}
       >
         <input
@@ -76,13 +76,13 @@ export default function BookPage() {
           </ul>
         </div>
 
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold mb-4">
           Book <span className="text-purple-700">Your</span> Delivery
         </h1>
 
         {/* Collection Address */}
-        <fieldset className="border p-4 rounded-md">
-          <h2 className="font-semibold mb-2">1. Collection Address</h2>
+        <fieldset className="border p-4 rounded-md space-y-2">
+          <h2 className="font-semibold">1. Collection Address</h2>
           <label>Name *</label>
           <input type="text" name="ShipmentCollectionName" value={form.ShipmentCollectionName} onChange={handleChange} required className="input-field" />
           <label>Email</label>
@@ -100,12 +100,12 @@ export default function BookPage() {
           <label>County</label>
           <input type="text" name="ShipmentCollectionCounty" value={form.ShipmentCollectionCounty} onChange={handleChange} className="input-field" />
           <label>Country</label>
-          <input type="text" name="ShipmentCollectionCountry" value={form.ShipmentCollectionCountry} readOnly className="input-field bg-gray-100" />
+          <input type="text" name="ShipmentCollectionCountry" value={form.ShipmentCollectionCountry} readOnly className="bg-gray-100 input-field" />
         </fieldset>
 
         {/* Delivery Address */}
-        <fieldset className="border p-4 rounded-md">
-          <h2 className="font-semibold mb-2">2. Delivery Address</h2>
+        <fieldset className="border p-4 rounded-md space-y-2">
+          <h2 className="font-semibold">2. Delivery Address</h2>
           <label>Name *</label>
           <input type="text" name="ShipmentDeliveryName" value={form.ShipmentDeliveryName} onChange={handleChange} required className="input-field" />
           <label>Email</label>
@@ -123,12 +123,12 @@ export default function BookPage() {
           <label>County</label>
           <input type="text" name="ShipmentDeliveryCounty" value={form.ShipmentDeliveryCounty} onChange={handleChange} className="input-field" />
           <label>Country *</label>
-          <input type="text" name="ShipmentDeliveryCountry" value={form.ShipmentDeliveryCountry} readOnly className="input-field bg-gray-100" />
+          <input type="text" name="ShipmentDeliveryCountry" value={form.ShipmentDeliveryCountry} readOnly className="bg-gray-100 input-field" />
         </fieldset>
 
         {/* Additional Info */}
-        <fieldset className="border p-4 rounded-md">
-          <h2 className="font-semibold mb-2">3. Additional Information</h2>
+        <fieldset className="border p-4 rounded-md space-y-2">
+          <h2 className="font-semibold">3. Additional Information</h2>
           <label>Collection Date *</label>
           <input type="date" name="ShipmentCollectionDate" value={form.ShipmentCollectionDate} onChange={handleChange} required className="input-field" />
           <label>Contents *</label>
