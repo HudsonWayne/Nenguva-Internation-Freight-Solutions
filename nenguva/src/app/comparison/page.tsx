@@ -31,15 +31,6 @@ export default function ComparisonPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Purple Banner with Logo */}
-      <div className="bg-purple-900 py-6 px-10 flex items-center">
-        <h1 className="text-4xl font-bold text-white flex items-center space-x-2">
-          <span>parcel</span>
-          <span className="text-yellow-400">🐒</span>
-          <span>monkey</span>
-        </h1>
-      </div>
-
       {/* Main Section */}
       <div className="w-[90%] mx-auto mt-10">
         <h2 className="text-3xl font-bold text-purple-900 mb-2">
