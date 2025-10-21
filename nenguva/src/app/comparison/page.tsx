@@ -8,7 +8,7 @@ export default function ComparisonPage() {
 
   const services = [
     {
-      logo: "/evri.png", // ⚠️ Add these logo images in your public folder
+      logo: "/evri.png",
       name: "EVRi International Collected",
       price: "£121.59",
       delivery: "Delivery in 7–10 days",
@@ -31,20 +31,14 @@ export default function ComparisonPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-purple-900 py-4 px-6 flex justify-between items-center shadow-md">
-        <div className="flex items-center space-x-2">
-          <h1 className="text-3xl font-bold text-white flex items-center">
-            parcel<span className="text-yellow-400">🐒</span>monkey
-          </h1>
-        </div>
-        <button
-          onClick={() => router.push("/")}
-          className="bg-purple-700 hover:bg-purple-800 text-white p-3 rounded-full"
-        >
-          🏠
-        </button>
-      </header>
+      {/* Top Purple Banner with Logo */}
+      <div className="bg-purple-900 py-6 px-10 flex items-center">
+        <h1 className="text-4xl font-bold text-white flex items-center space-x-2">
+          <span>parcel</span>
+          <span className="text-yellow-400">🐒</span>
+          <span>monkey</span>
+        </h1>
+      </div>
 
       {/* Main Section */}
       <div className="w-[90%] mx-auto mt-10">
@@ -52,6 +46,7 @@ export default function ComparisonPage() {
           Your <span className="text-gray-800">Comparison Results</span>
         </h2>
 
+        {/* Results Info Bar */}
         <div className="flex flex-wrap items-center justify-between bg-purple-900 text-white rounded-md p-4 shadow-sm mb-8">
           <p className="text-lg">
             We’ve found <strong>{services.length} services</strong> from{" "}
@@ -84,7 +79,8 @@ export default function ComparisonPage() {
             POPULAR <span className="text-sm font-normal">from £0.00</span>
           </button>
           <button className="bg-purple-900 text-white font-semibold px-6 py-2 rounded-md border-b-4 border-yellow-400">
-            INTL PRIORITY <span className="text-sm font-normal">from £121.59</span>
+            INTL PRIORITY{" "}
+            <span className="text-sm font-normal">from £121.59</span>
           </button>
           <button className="bg-purple-700 text-white font-semibold px-6 py-2 rounded-md">
             DROP OFF <span className="text-sm font-normal">from £121.09</span>
@@ -120,7 +116,9 @@ export default function ComparisonPage() {
             </div>
 
             <div className="text-right flex flex-col items-end">
-              <p className="text-2xl font-bold text-purple-800 mb-1">{s.price}</p>
+              <p className="text-2xl font-bold text-purple-800 mb-1">
+                {s.price}
+              </p>
               <div className="flex items-center text-yellow-500 mb-1">
                 {Array.from({ length: s.rating }).map((_, index) => (
                   <span key={index}>⭐</span>
