@@ -117,7 +117,7 @@ export default function ComparisonPage() {
               </div>
               <p className="text-red-500 text-sm mb-2">{s.time}</p>
               <button
-                onClick={() => alert(`Booked ${s.name}`)}
+                onClick={() => router.push("/book")}
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition"
               >
                 Book Now
