@@ -11,10 +11,10 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "Get a Parcel Delivery Quote", href: "/send-parcels" },
     { name: "About Us", href: "/about" },
-    { name: "Help & Support", href: "/contact-us" }, // ✅ goes to contact-us
-    { name: "Sign Up", href: "/register" }, // ✅ goes to register
-    { name: "Login", href: "/login" }, // ✅ goes to login
-    { name: "Parcel Tracking", href: "/tracking" }, // ✅ goes to tracking
+    { name: "Help & Support", href: "/contact-us" }, 
+    { name: "Sign Up", href: "/register" }, 
+    { name: "Login", href: "/login" }, 
+    { name: "Parcel Tracking", href: "http://localhost:3000/tracking" }, // ✅ Updated link
   ];
 
   const navLinks2 = [
@@ -43,7 +43,7 @@ const Footer = () => {
               {navLinks1.map((link, idx) => (
                 <button
                   key={idx}
-                  onClick={() => router.push(link.href)}
+                  onClick={() => window.location.href = link.href} // Use window.location for full URL
                   className="text-left hover:underline leading-relaxed text-sm sm:text-base"
                 >
                   {link.name}
