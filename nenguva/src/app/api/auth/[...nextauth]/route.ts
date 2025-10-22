@@ -1,8 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-import { connectDB } from "@/lib/mongodb";
-import User from "@/models/User";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcrypt";
 
 const handler = NextAuth({
   providers: [
@@ -13,20 +12,37 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        await connectDB();
-        const user = await User.findOne({ email: credentials?.email });
-        if (!user) throw new Error("No user found with that email");
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error("Please enter email and password");
+        }
 
-        const isValid = await bcrypt.compare(credentials!.password, user.password);
-        if (!isValid) throw new Error("Invalid password");
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
 
-        return { id: user._id.toString(), name: user.name, email: user.email };
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        const isValid = await bcrypt.compare(credentials.password, user.password);
+        if (!isValid) {
+          throw new Error("Invalid password");
+        }
+
+        return { id: user.id.toString(), name: user.name, email: user.email };
       },
     }),
   ],
-  session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
-  secret: process.env.NEXTAUTH_SECRET,
+
+  pages: {
+    signIn: "/login", // optional
+  },
+
+  session: {
+    strategy: "jwt",
+  },
+
+  secret: process.env.NEXTAUTH_SECRET || "super-secret-key",
 });
 
 export { handler as GET, handler as POST };
