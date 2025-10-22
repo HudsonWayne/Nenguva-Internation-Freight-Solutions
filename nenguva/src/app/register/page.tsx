@@ -32,9 +32,8 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error);
+        setError(data.error || "Registration failed");
       } else {
-        // Wait a moment for a nice transition
         setTimeout(() => {
           router.push("/login");
         }, 1000);
@@ -61,7 +60,9 @@ export default function RegisterPage() {
             alt="Register Illustration"
             className="w-80 h-auto drop-shadow-2xl transform hover:scale-105 transition duration-500"
           />
-          <h2 className="text-2xl font-bold text-purple-700 text-center">Join the Nenguva Family</h2>
+          <h2 className="text-2xl font-bold text-purple-700 text-center">
+            Join the Nenguva Family
+          </h2>
           <p className="text-center text-gray-600 px-4">
             Sign up and start shipping smarter and faster today.
           </p>
@@ -69,9 +70,14 @@ export default function RegisterPage() {
 
         {/* Registration Form */}
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">Create Account</h1>
+          <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-2">
+            Create Account
+          </h1>
           <p className="text-center text-gray-600 mb-8">
-            Register with <span className="font-semibold text-purple-800">Nenguva International Freight</span>
+            Register with{" "}
+            <span className="font-semibold text-purple-800">
+              Nenguva International Freight
+            </span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -150,7 +156,10 @@ export default function RegisterPage() {
           </form>
 
           <div className="text-center mt-6">
-            <Link href="/login" className="text-purple-700 hover:text-purple-900 hover:underline font-medium">
+            <Link
+              href="/login"
+              className="text-purple-700 hover:text-purple-900 hover:underline font-medium"
+            >
               Already have an account? Log in
             </Link>
           </div>
