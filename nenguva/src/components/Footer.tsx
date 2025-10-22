@@ -41,7 +41,15 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <div className="flex flex-col gap-2">
               {navLinks1.map((link, idx) => (
-                <a key={idx} href="#" className="hover:underline leading-relaxed text-sm sm:text-base">
+                <a
+                  key={idx}
+                  href={
+                    link === "Get a Parcel Delivery Quote"
+                      ? "http://localhost:3000/send-parcels"
+                      : "#"
+                  }
+                  className="hover:underline leading-relaxed text-sm sm:text-base"
+                >
                   {link}
                 </a>
               ))}
