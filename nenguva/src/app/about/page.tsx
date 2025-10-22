@@ -156,6 +156,25 @@ const AboutUs = () => {
               </select>
             </div>
 
+            {/* Parcel Weight */}
+            <div className="text-left">
+              <label
+                htmlFor="weight"
+                className="block text-gray-700 mb-2 font-semibold"
+              >
+                Parcel Weight (kg)
+              </label>
+              <input
+                type="number"
+                name="weight"
+                id="weight"
+                placeholder="Enter weight"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#004aad] focus:outline-none"
+                min={0.1}
+                step={0.1}
+              />
+            </div>
+
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-[#004aad] to-[#ff914d] text-white py-3 rounded-full font-semibold shadow-md hover:scale-105 transition transform"
