@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // 🌍 List of all countries
 const countries = [
@@ -29,6 +30,22 @@ const countries = [
 ];
 
 const AboutUs = () => {
+  const router = useRouter();
+
+  // Form state
+  const [origin, setOrigin] = useState("Zimbabwe");
+  const [destination, setDestination] = useState("United Kingdom");
+  const [weight, setWeight] = useState("");
+
+  // Handle form submit
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Redirect to /send-parcels with query params
+    router.push(
+      `/send-parcels?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&weight=${encodeURIComponent(weight)}`
+    );
+  };
+
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* === Hero Section === */}
@@ -47,7 +64,6 @@ const AboutUs = () => {
           </button>
         </div>
 
-        {/* Faint background image overlay */}
         <div className="absolute inset-0 opacity-10 bg-[url('/images/delivery-bg.jpg')] bg-cover bg-center"></div>
       </section>
 
@@ -110,64 +126,53 @@ const AboutUs = () => {
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold mb-6">Get an Instant Quote 🚀</h3>
           <form
-            method="post"
-            action="/quotev3.php"
+            onSubmit={handleSubmit}
             className="max-w-xl mx-auto bg-white text-gray-800 rounded-2xl shadow-2xl p-8 space-y-6"
           >
             {/* Collect From */}
             <div className="text-left">
-              <label
-                htmlFor="origin"
-                className="block text-gray-700 mb-2 font-semibold"
-              >
+              <label htmlFor="origin" className="block text-gray-700 mb-2 font-semibold">
                 Collect From
               </label>
               <select
-                name="origin"
                 id="origin"
+                value={origin}
+                onChange={(e) => setOrigin(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#004aad] focus:outline-none"
               >
                 {countries.map((country, index) => (
-                  <option key={index} value={country}>
-                    {country}
-                  </option>
+                  <option key={index} value={country}>{country}</option>
                 ))}
               </select>
             </div>
 
             {/* Delivering To */}
             <div className="text-left">
-              <label
-                htmlFor="destination"
-                className="block text-gray-700 mb-2 font-semibold"
-              >
+              <label htmlFor="destination" className="block text-gray-700 mb-2 font-semibold">
                 Delivering To
               </label>
               <select
-                name="destination"
                 id="destination"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#004aad] focus:outline-none"
               >
                 {countries.map((country, index) => (
-                  <option key={index} value={country}>
-                    {country}
-                  </option>
+                  <option key={index} value={country}>{country}</option>
                 ))}
               </select>
             </div>
 
             {/* Parcel Weight */}
             <div className="text-left">
-              <label
-                htmlFor="weight"
-                className="block text-gray-700 mb-2 font-semibold"
-              >
+              <label htmlFor="weight" className="block text-gray-700 mb-2 font-semibold">
                 Parcel Weight (kg)
               </label>
               <input
                 type="number"
-                name="weight"
                 id="weight"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
                 placeholder="Enter weight"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#004aad] focus:outline-none"
                 min={0.1}
@@ -185,7 +190,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* === Footer Padding === */}
+      {/* Footer Padding */}
       <div className="py-12"></div>
     </div>
   );
