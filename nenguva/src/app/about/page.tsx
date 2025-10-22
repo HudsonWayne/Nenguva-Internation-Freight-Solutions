@@ -6,14 +6,15 @@ import React from "react";
 const Footer = () => {
   const router = useRouter();
 
+  // Correct links
   const navLinks1 = [
     { name: "Home", href: "/" },
     { name: "Get a Parcel Delivery Quote", href: "/send-parcels" },
     { name: "About Us", href: "/about" },
-    { name: "Help & Support", href: "/contact-us" },
-    { name: "Sign Up", href: "http://localhost:3000/register" }, // ✅ Updated link
-    { name: "Login", href: "/login" },
-    { name: "Parcel Tracking", href: "/tracking" },
+    { name: "Help & Support", href: "/contact-us" }, // ✅ goes to contact-us
+    { name: "Sign Up", href: "/register" }, // ✅ goes to register
+    { name: "Login", href: "/login" }, // ✅ goes to login
+    { name: "Parcel Tracking", href: "/tracking" }, // ✅ goes to tracking
   ];
 
   const navLinks2 = [
