@@ -6,13 +6,9 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -42,9 +38,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json(
-      { error: "Error sending email" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Error sending email" }, { status: 500 });
   }
 }

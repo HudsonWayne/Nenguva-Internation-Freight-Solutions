@@ -91,9 +91,7 @@ export default function ContactUsPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Full Name
-                  </label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
                   <input
                     type="text"
                     id="name"
@@ -104,11 +102,8 @@ export default function ContactUsPage() {
                     className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email Address
-                  </label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -119,11 +114,8 @@ export default function ContactUsPage() {
                     className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                    Message
-                  </label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
                   <textarea
                     id="message"
                     name="message"
@@ -134,22 +126,15 @@ export default function ContactUsPage() {
                     className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   ></textarea>
                 </div>
-
                 <button
                   type="submit"
                   className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-lg font-semibold transition duration-200 shadow-md"
                 >
                   Send Message
                 </button>
-
-                {/* NEW LINKS */}
                 <div className="flex justify-between text-sm text-center mt-6">
-                  <Link href="/register" className="text-purple-600 hover:underline">
-                    Don’t have an account? Register now
-                  </Link>
-                  <Link href="/login" className="text-purple-600 hover:underline">
-                    Forgot password?
-                  </Link>
+                  <Link href="/register" className="text-purple-600 hover:underline">Don’t have an account? Register now</Link>
+                  <Link href="/login" className="text-purple-600 hover:underline">Forgot password?</Link>
                 </div>
               </form>
             )}
