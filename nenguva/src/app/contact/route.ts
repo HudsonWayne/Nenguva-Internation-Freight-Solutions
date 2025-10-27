@@ -4,6 +4,7 @@ export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
+    // Validate input
     if (!name || !email || !message) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
@@ -11,17 +12,26 @@ export async function POST(req: Request) {
       );
     }
 
+    // Show env vars in logs for debug (comment out when live)
+    // console.log({
+    //   host: process.env.SMTP_HOST,
+    //   port: process.env.SMTP_PORT,
+    //   user: process.env.SMTP_USER,
+    //   pass: process.env.SMTP_PASS,
+    //   to: process.env.CONTACT_RECEIVER
+    // });
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_PORT === "465", // true for 465, false for others like 587
+      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for others
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
-    // Sanitize input if you'd like to avoid HTML injection
+    // Sanitize the message for HTML output
     const safeMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     await transporter.sendMail({
