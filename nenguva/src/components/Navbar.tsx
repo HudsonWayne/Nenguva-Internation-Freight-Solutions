@@ -4,15 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { User } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
   const pathname = usePathname();
-
-  const { data: session } = useSession(); // ✅ Get logged-in user info
+  const { data: session } = useSession();
 
   const isActive = (href: string) => pathname === href;
 
@@ -32,9 +30,9 @@ export default function Navbar() {
 
         {/* Navigation */}
         <nav
-          className={`${
-            menuOpen ? "block" : "hidden"
-          } absolute md:static top-16 left-0 w-full md:w-auto bg-purple-700 md:flex md:space-x-6 shadow-md md:shadow-none p-4 md:p-0`}
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-purple-700 md:bg-transparent md:flex md:space-x-6 shadow-md md:shadow-none p-4 md:p-0 transition-all duration-300 ${
+            menuOpen ? "block" : "hidden md:flex"
+          }`}
         >
           <ul className="space-y-4 md:space-y-0 md:flex md:items-center md:gap-6">
             {/* Home */}
@@ -88,7 +86,7 @@ export default function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
+                <div className="fixed top-16 left-1/2 -translate-x-1/2 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
                   {/* COURIER COMPANIES */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
@@ -109,7 +107,9 @@ export default function Navbar() {
                         "DeliveryApp",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/services/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -145,7 +145,9 @@ export default function Navbar() {
                         "Yodel Direct Economy Drop Off",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/services/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -183,7 +185,9 @@ export default function Navbar() {
                         "Service updates",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/services/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -206,7 +210,9 @@ export default function Navbar() {
                         "Caribbean",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/destinations/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -230,8 +236,8 @@ export default function Navbar() {
               </button>
 
               {guidesOpen && (
-                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-2 gap-10 px-12 py-8 z-50 w-[60vw] max-w-[1000px]">
-                  {/* Parcel Delivery Guides */}
+                <div className="fixed top-16 left-1/2 -translate-x-1/2 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-2 gap-10 px-12 py-8 z-50 w-[60vw] max-w-[1000px]">
+                  {/* PARCEL DELIVERY GUIDES */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       PARCEL DELIVERY GUIDES
@@ -255,13 +261,15 @@ export default function Navbar() {
                         "What is PrePay",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/guides/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Sending Niche Items */}
+                  {/* SENDING NICHE ITEMS */}
                   <div>
                     <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
                       SENDING NICHE ITEMS
@@ -287,7 +295,9 @@ export default function Navbar() {
                         "Chocolate",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={`/guides/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                            {item}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -328,22 +338,19 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* ✅ Auth Section */}
+            {/* Auth Section */}
             {session ? (
-              <>
-                {/* Profile Icon */}
-                <li className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
-                    {session.user?.name?.charAt(0) || "U"}
-                  </div>
-                  <button
-                    onClick={() => signOut({ callbackUrl: "/" })}
-                    className="hover:text-yellow-300 font-medium"
-                  >
-                    Sign Out
-                  </button>
-                </li>
-              </>
+              <li className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
+                  {session.user?.name?.charAt(0) || "U"}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="hover:text-yellow-300 font-medium"
+                >
+                  Sign Out
+                </button>
+              </li>
             ) : (
               <>
                 <li>
