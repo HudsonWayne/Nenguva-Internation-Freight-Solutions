@@ -12,7 +12,7 @@ export default function Navbar() {
   const [guidesOpen, setGuidesOpen] = useState(false);
   const pathname = usePathname();
 
-  const { data: session } = useSession(); // ✅ Get logged-in user info
+  const { data: session } = useSession();
 
   const isActive = (href: string) => pathname === href;
 
@@ -41,9 +41,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className={`hover:text-yellow-300 ${
-                  isActive("/") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/") ? "text-yellow-400" : ""}`}
               >
                 Home
               </Link>
@@ -53,9 +51,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/send-parcels"
-                className={`hover:text-yellow-300 ${
-                  isActive("/send-parcels") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/send-parcels") ? "text-yellow-400" : ""}`}
               >
                 Send Parcels
               </Link>
@@ -65,9 +61,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/tracking"
-                className={`hover:text-yellow-300 ${
-                  isActive("/tracking") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/tracking") ? "text-yellow-400" : ""}`}
               >
                 Tracking
               </Link>
@@ -79,11 +73,7 @@ export default function Navbar() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button
-                className={`hover:text-yellow-300 ${
-                  servicesOpen ? "text-yellow-400" : ""
-                }`}
-              >
+              <button className={`hover:text-yellow-300 ${servicesOpen ? "text-yellow-400" : ""}`}>
                 Services
               </button>
 
@@ -221,11 +211,7 @@ export default function Navbar() {
               onMouseEnter={() => setGuidesOpen(true)}
               onMouseLeave={() => setGuidesOpen(false)}
             >
-              <button
-                className={`hover:text-yellow-300 ${
-                  guidesOpen ? "text-yellow-400" : ""
-                }`}
-              >
+              <button className={`hover:text-yellow-300 ${guidesOpen ? "text-yellow-400" : ""}`}>
                 Guides
               </button>
 
@@ -300,9 +286,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/reviews"
-                className={`hover:text-yellow-300 ${
-                  isActive("/reviews") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/reviews") ? "text-yellow-400" : ""}`}
               >
                 Reviews
               </Link>
@@ -310,9 +294,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/rewards"
-                className={`hover:text-yellow-300 ${
-                  isActive("/rewards") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/rewards") ? "text-yellow-400" : ""}`}
               >
                 Rewards
               </Link>
@@ -320,38 +302,31 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact-us"
-                className={`hover:text-yellow-300 ${
-                  isActive("/contact-us") ? "text-yellow-400" : ""
-                }`}
+                className={`hover:text-yellow-300 ${isActive("/contact-us") ? "text-yellow-400" : ""}`}
               >
                 Contact Us
               </Link>
             </li>
 
-            {/* ✅ Auth Section */}
+            {/* Auth Section */}
             {session ? (
-              <>
-                {/* Profile Icon */}
-                <li className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
-                    {session.user?.name?.charAt(0) || "U"}
-                  </div>
-                  <button
-                    onClick={() => signOut({ callbackUrl: "/" })}
-                    className="hover:text-yellow-300 font-medium"
-                  >
-                    Sign Out
-                  </button>
-                </li>
-              </>
+              <li className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
+                  {session.user?.name?.charAt(0) || "U"}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="hover:text-yellow-300 font-medium"
+                >
+                  Sign Out
+                </button>
+              </li>
             ) : (
               <>
                 <li>
                   <Link
                     href="/register"
-                    className={`hover:text-yellow-300 ${
-                      isActive("/register") ? "text-yellow-400" : ""
-                    }`}
+                    className={`hover:text-yellow-300 ${isActive("/register") ? "text-yellow-400" : ""}`}
                   >
                     Sign Up
                   </Link>
@@ -359,9 +334,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/login"
-                    className={`hover:text-yellow-300 ${
-                      isActive("/login") ? "text-yellow-400" : ""
-                    }`}
+                    className={`hover:text-yellow-300 ${isActive("/login") ? "text-yellow-400" : ""}`}
                   >
                     Log In
                   </Link>
