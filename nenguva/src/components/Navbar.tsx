@@ -1,20 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { User } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session } = useSession();
 
-  const { data: session } = useSession(); // ✅ Get logged-in user info
+  const servicesRef = useRef<HTMLLIElement>(null);
 
   const isActive = (href: string) => pathname === href;
+
+  // ✅ Close Services dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
@@ -73,13 +88,10 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Services Dropdown */}
-            <li
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
+            {/* ✅ Services Dropdown (Clickable) */}
+            <li ref={servicesRef} className="relative">
               <button
+                onClick={() => setServicesOpen(!servicesOpen)}
                 className={`hover:text-yellow-300 ${
                   servicesOpen ? "text-yellow-400" : ""
                 }`}
@@ -215,7 +227,7 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* Guides Dropdown */}
+            {/* Guides Dropdown (Hover) */}
             <li
               className="relative"
               onMouseEnter={() => setGuidesOpen(true)}
@@ -328,22 +340,19 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* ✅ Auth Section */}
+            {/* Auth Section */}
             {session ? (
-              <>
-                {/* Profile Icon */}
-                <li className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
-                    {session.user?.name?.charAt(0) || "U"}
-                  </div>
-                  <button
-                    onClick={() => signOut({ callbackUrl: "/" })}
-                    className="hover:text-yellow-300 font-medium"
-                  >
-                    Sign Out
-                  </button>
-                </li>
-              </>
+              <li className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
+                  {session.user?.name?.charAt(0) || "U"}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="hover:text-yellow-300 font-medium"
+                >
+                  Sign Out
+                </button>
+              </li>
             ) : (
               <>
                 <li>

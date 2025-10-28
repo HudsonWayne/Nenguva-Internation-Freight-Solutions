@@ -1,147 +1,373 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 
-export default function Dpd() {
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
+  const pathname = usePathname();
+  const { data: session } = useSession();
+
+  const isActive = (href: string) => pathname === href;
+
   return (
-    <main className="bg-white text-gray-900">
-      {/* Breadcrumb */}
-      <nav className="text-sm text-gray-600 p-4">
-        <Link href="/" className="hover:text-purple-700">
-          Home
-        </Link>{" "}
-        &gt;{" "}
-        <Link href="/couriers" className="hover:text-purple-700">
-          Couriers
-        </Link>{" "}
-        &gt; <span className="text-purple-700 font-medium">DPD</span>
-      </nav>
+    <header className="sticky top-0 z-50 bg-purple-700 shadow-md">
+      <div className="container mx-auto flex items-center justify-between p-4 text-white relative">
+        {/* Logo */}
+        <h1 className="text-xl font-bold">Nenguva</h1>
 
-      {/* Header */}
-      <section className="px-6 md:px-20 py-8">
-        <h1 className="text-3xl font-bold text-purple-800 mb-4">
-          Send a Parcel with DPD Courier Delivery
-        </h1>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-sm text-white border border-white px-3 py-1 rounded"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "Close" : "Menu"}
+        </button>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Left Side */}
-          <div className="bg-purple-50 rounded-lg p-8 shadow">
-            <h2 className="text-2xl font-semibold text-purple-800 mb-6">
-              Services available from just{" "}
-              <span className="text-green-600 text-3xl font-bold">£7.83</span>{" "}
-              <span className="text-base text-gray-600">exc VAT</span>
-            </h2>
-
-            <ul className="space-y-3 text-lg">
-              {[
-                "Drop Off at any of the 2,500 DPD Pickup stores",
-                "Collected services available",
-                "Express delivery times",
-                "Send up to 20kg",
-                "DPD live tracking",
-                "Choose your delivery day/slot via the DPD App",
-                "FREE £20 loss/ damage cover included",
-                "Optional protection cover available up to £1000",
-              ].map((item) => (
-                <li key={item} className="flex items-start">
-                  <span className="text-green-600 text-xl mr-2">✔</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Side Quote Box */}
-          <div className="bg-purple-900 text-white rounded-lg p-8 shadow-lg">
-            <div className="flex justify-between mb-6">
-              <button className="text-lg font-semibold border-b-2 border-green-400 pb-1">
-                Parcel Delivery
-              </button>
-              <button className="text-lg font-semibold opacity-70">
-                ParcelMonkey<span className="text-green-400">Local</span>
-              </button>
-            </div>
-
-            <h2 className="text-xl font-semibold mb-4">
-              Get an Instant Quote
-            </h2>
-
-            <form className="space-y-4">
-              <div>
-                <label className="block mb-2 text-sm">Collect from</label>
-                <select className="w-full p-2 text-black rounded">
-                  <option>United Kingdom</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block mb-2 text-sm">Delivering to</label>
-                <select className="w-full p-2 text-black rounded">
-                  <option>United Kingdom</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block mb-2 text-sm">Parcel Weight</label>
-                <div className="flex">
-                  <input
-                    type="number"
-                    placeholder="Enter weight"
-                    className="flex-grow p-2 text-black rounded-l"
-                  />
-                  <span className="bg-purple-700 px-3 flex items-center rounded-r">
-                    Kg
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-purple-900 font-semibold py-3 rounded mt-6"
+        {/* Navigation */}
+        <nav
+          className={`${
+            menuOpen ? "block" : "hidden md:!flex"
+          } absolute md:static top-16 left-0 w-full md:w-auto bg-purple-700 md:bg-transparent md:shadow-none shadow-md p-4 md:p-0`}
+        >
+          <ul className="space-y-4 md:space-y-0 md:flex md:items-center md:gap-6">
+            {/* Home */}
+            <li>
+              <Link
+                href="/"
+                className={`hover:text-yellow-300 ${
+                  isActive("/") ? "text-yellow-400" : ""
+                }`}
               >
-                Get Quote & Book
-              </button>
-            </form>
-
-            <div className="mt-6 text-sm space-y-2 text-purple-200">
-              <p>📦 Send multiple parcels</p>
-              <p>📏 Parcel larger than 1m?</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Buttons */}
-      <div className="flex flex-col md:flex-row justify-center gap-6 px-6 md:px-20 pb-10">
-        <button className="bg-gradient-to-b from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md">
-          Track your DPD delivery here
-        </button>
-        <button className="bg-gradient-to-b from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md">
-          DPD Drop Off Locations
-        </button>
-      </div>
-
-      {/* Quick Links */}
-      <section className="bg-yellow-50 px-6 md:px-20 py-10">
-        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-        <ul className="space-y-2 text-purple-800 underline">
-          {[
-            "About DPD",
-            "DPD UK delivery services",
-            "DPD international shipping",
-            "DPD drop off services",
-            "DPD track and trace",
-            "DPD restrictions",
-            "DPD delivery times",
-          ].map((link) => (
-            <li key={link}>
-              <Link href="#" className="hover:text-purple-600">
-                {link}
+                Home
               </Link>
             </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+
+            {/* Send Parcels */}
+            <li>
+              <Link
+                href="/send-parcels"
+                className={`hover:text-yellow-300 ${
+                  isActive("/send-parcels") ? "text-yellow-400" : ""
+                }`}
+              >
+                Send Parcels
+              </Link>
+            </li>
+
+            {/* Tracking */}
+            <li>
+              <Link
+                href="/tracking"
+                className={`hover:text-yellow-300 ${
+                  isActive("/tracking") ? "text-yellow-400" : ""
+                }`}
+              >
+                Tracking
+              </Link>
+            </li>
+
+            {/* Services Dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                className={`hover:text-yellow-300 ${
+                  servicesOpen ? "text-yellow-400" : ""
+                }`}
+              >
+                Services
+              </button>
+
+              {servicesOpen && (
+                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-4 gap-10 px-12 py-8 z-50 w-[80vw] max-w-[1400px]">
+                  {/* COURIER COMPANIES */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      COURIER COMPANIES
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "DPD",
+                        "DX",
+                        "DHL",
+                        "Parcelforce",
+                        "Parcel Monkey International",
+                        "CitySprint",
+                        "UPS",
+                        "FedEx Express",
+                        "Yodel Direct",
+                        "Evri",
+                        "DeliveryApp",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href={item === "DPD" ? "/dpd" : "#"}>{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* COURIER SERVICES */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      COURIER SERVICES
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "DHL Parcel UK",
+                        "DPD Air Classic",
+                        "DPD Air Express",
+                        "DPD Classic",
+                        "DPD Drop Off",
+                        "DX Freight",
+                        "Evri Collection",
+                        "Evri Drop Off",
+                        "Evri International Collection",
+                        "Evri International Drop Off",
+                        "FedEx International Economy Drop Off",
+                        "FedEx International Priority Drop Off",
+                        "FedEx Next Day Drop Off",
+                        "FedEx Regional Economy Drop Off",
+                        "Parcel Monkey Air Express",
+                        "Parcel Monkey Europe By Road",
+                        "Parcelforce 24",
+                        "Parcelforce 48",
+                        "Parcelforce 48 Large",
+                        "Parcelforce Global Priority",
+                        "Yodel Direct Economy Drop Off",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* PARCEL DELIVERY SERVICES */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      PARCEL DELIVERY SERVICES
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "International parcel delivery",
+                        "Domestic UK delivery",
+                        "Large parcel delivery",
+                        "Heavy parcel delivery",
+                        "Long parcel delivery",
+                        "Small parcel delivery",
+                        "Courier parcel collection",
+                        "Parcel drop off",
+                        "Pallet delivery",
+                        "Recorded delivery service",
+                        "Same day courier service",
+                        "Next day parcel delivery",
+                        "Next morning delivery before 9 am",
+                        "Next morning delivery before 10 am",
+                        "Next morning delivery before 12 pm",
+                        "Saturday parcel delivery",
+                        "Sunday parcel delivery",
+                        "Expedited parcel delivery",
+                        "Overnight courier service",
+                        "Ebay courier service",
+                        "Bike courier service",
+                        "Motorbike courier service",
+                        "Service updates",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* INTERNATIONAL SHIPPING DESTINATIONS */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      INTERNATIONAL SHIPPING DESTINATIONS
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Europe",
+                        "North & Central America",
+                        "South America",
+                        "Asia",
+                        "Middle East",
+                        "Africa",
+                        "Oceania",
+                        "Caribbean",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* Guides Dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setGuidesOpen(true)}
+              onMouseLeave={() => setGuidesOpen(false)}
+            >
+              <button
+                className={`hover:text-yellow-300 ${
+                  guidesOpen ? "text-yellow-400" : ""
+                }`}
+              >
+                Guides
+              </button>
+
+              {guidesOpen && (
+                <div className="fixed top-7 left-1/2 -translate-x-1/2 mt-4 bg-purple-800 text-white rounded-xl shadow-xl grid grid-cols-2 gap-10 px-12 py-8 z-50 w-[60vw] max-w-[1000px]">
+                  {/* PARCEL DELIVERY GUIDES */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      PARCEL DELIVERY GUIDES
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Parcel weight & size limits",
+                        "Parcel delivery times",
+                        "Postage rates",
+                        "Sending parcels without labels",
+                        "Sending high value items",
+                        "Sending multiple parcels",
+                        "Customs charges",
+                        "How to weigh & measure parcels",
+                        "How to calculate volume",
+                        "How to calculate volumetric weight",
+                        "How to calculate length & girth",
+                        "How to address a letter or parcel to the USA",
+                        "How to address a letter or parcel to Australia",
+                        "What is what3words",
+                        "What is PrePay",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* SENDING NICHE ITEMS */}
+                  <div>
+                    <h3 className="font-bold mb-4 border-b border-purple-600 pb-2 text-lg">
+                      SENDING NICHE ITEMS
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Mobile phones",
+                        "Alcohol",
+                        "Bikes",
+                        "Furniture",
+                        "Car parts",
+                        "Guitars",
+                        "Wheels & tyres",
+                        "Books",
+                        "Clothing",
+                        "Golf clubs",
+                        "Mattresses",
+                        "Batteries",
+                        "Jewellery",
+                        "Fishing rods",
+                        "Pushchairs",
+                        "Rugs",
+                        "Chocolate",
+                      ].map((item) => (
+                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                          <Link href="#">{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* Other Links */}
+            <li>
+              <Link
+                href="/reviews"
+                className={`hover:text-yellow-300 ${
+                  isActive("/reviews") ? "text-yellow-400" : ""
+                }`}
+              >
+                Reviews
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/rewards"
+                className={`hover:text-yellow-300 ${
+                  isActive("/rewards") ? "text-yellow-400" : ""
+                }`}
+              >
+                Rewards
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/contact-us"
+                className={`hover:text-yellow-300 ${
+                  isActive("/contact-us") ? "text-yellow-400" : ""
+                }`}
+              >
+                Contact Us
+              </Link>
+            </li>
+
+            {/* Auth Section */}
+            {session ? (
+              <li className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-yellow-400 text-purple-900 rounded-full flex items-center justify-center font-bold uppercase">
+                  {session.user?.name?.charAt(0) || "U"}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="hover:text-yellow-300 font-medium"
+                >
+                  Sign Out
+                </button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    href="/register"
+                    className={`hover:text-yellow-300 ${
+                      isActive("/register") ? "text-yellow-400" : ""
+                    }`}
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/login"
+                    className={`hover:text-yellow-300 ${
+                      isActive("/login") ? "text-yellow-400" : ""
+                    }`}
+                  >
+                    Log In
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 }
