@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaTruck, FaGlobe, FaBoxOpen, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Dpd() {
   const countries = [
@@ -30,21 +31,20 @@ export default function Dpd() {
     <main className="bg-gradient-to-b from-purple-50 to-white text-gray-900 min-h-screen">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-600 p-4 md:px-20">
-        <Link href="/" className="hover:text-purple-700">Home</Link>{" "}
-        &gt;{" "}
-        <Link href="/services" className="hover:text-purple-700">Couriers</Link>{" "}
-        &gt; <span className="text-purple-700 font-medium">DPD</span>
+        <Link href="/" className="hover:text-purple-700">Home</Link>{" "} &gt;{" "}
+        <Link href="/services" className="hover:text-purple-700">Couriers</Link>{" "} &gt;{" "}
+        <span className="text-purple-700 font-medium">DPD</span>
       </nav>
 
       {/* Header */}
       <section className="px-6 md:px-20 py-10">
         <h1 className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-8">
-          Send a Parcel with DPD Courier Delivery
+          Send a Parcel with <span className="text-green-600">DPD Courier</span>
         </h1>
 
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left Side */}
-          <div className="bg-white rounded-xl p-8 shadow-lg border border-purple-200 hover:shadow-2xl transition-shadow duration-300">
+          <div className="bg-white rounded-2xl p-8 shadow-2xl border border-purple-200 hover:scale-105 transition-transform duration-300">
             <h2 className="text-2xl font-semibold text-purple-800 mb-6">
               Services from just{" "}
               <span className="text-green-600 text-3xl font-bold">£7.83</span>{" "}
@@ -59,7 +59,7 @@ export default function Dpd() {
                 "Send up to 20kg",
                 "DPD live tracking",
                 "Choose your delivery day/slot via the DPD App",
-                "FREE £20 loss/ damage cover included",
+                "FREE £20 loss/damage cover included",
                 "Optional protection cover available up to £1000",
               ].map((item) => (
                 <li key={item} className="flex items-start">
@@ -71,7 +71,7 @@ export default function Dpd() {
           </div>
 
           {/* Right Side Quote Box */}
-          <div className="bg-purple-900 text-white rounded-xl p-8 shadow-lg">
+          <div className="bg-purple-900 text-white rounded-2xl p-8 shadow-2xl hover:scale-105 transition-transform duration-300">
             <div className="flex justify-between mb-6">
               <button className="text-lg font-semibold border-b-2 border-green-400 pb-1">
                 Parcel Delivery
@@ -134,11 +134,11 @@ export default function Dpd() {
 
       {/* Action Buttons */}
       <div className="flex flex-col md:flex-row justify-center gap-6 px-6 md:px-20 pb-10">
-        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105">
-          Track your DPD delivery here
+        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
+          <FaTruck /> Track your DPD delivery here
         </button>
-        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105">
-          DPD Drop Off Locations
+        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
+          <FaMapMarkerAlt /> DPD Drop Off Locations
         </button>
       </div>
 
@@ -164,89 +164,50 @@ export default function Dpd() {
         </ul>
       </section>
 
-      {/* Added Screenshot Content */}
+      {/* Services Info */}
       <section className="px-6 md:px-20 py-10 space-y-12">
-        <div>
-          <h2 className="text-2xl font-bold text-purple-800 mb-3">DPD courier services</h2>
-          <p className="text-gray-700 leading-relaxed">
-            DPD offer a reliable delivery service to destinations around the world,
-            as well as an excellent UK domestic service. Handling 2 million parcels every day,
-            they regularly top customer satisfaction surveys for their excellent services levels.
-          </p>
-          <p className="text-gray-700 mt-3">
-            If you want to reach customers, friends or family around the globe for less,
-            then you can book DPD services at a discounted rate via Parcel Monkey.
-            You'll still have access to their brilliant tracking tool, be able to add protection cover
-            and choose from a range of collection and drop off services, including
-            <span className="font-semibold"> DPD Drop Off, DPD Classic and DPD Express.</span>
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold text-purple-800 mb-3">DPD UK delivery services</h2>
-          <p className="text-gray-700 leading-relaxed">
-            For those who need to send a parcel domestically within the UK, we offer discounted
-            drop-off and collection services with DPD.
-          </p>
-          <p className="text-gray-700 mt-3">
-            Our DPD Pick Up service allows you to drop off your parcel at any DPD Pick Up point and
-            will deliver your parcel in 1-2 days. DPD Next Day Collected includes a courier collection
-            from your home or work address and will deliver your parcel the working day after collection.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold text-purple-800 mb-3">International shipping with DPD</h2>
-          <p className="text-gray-700 leading-relaxed">
-            DPD offer affordable delivery services out of the UK to international destinations.
-            You can send your items to major destinations in Europe in 3-5 working days, whilst
-            if you are sending a parcel out of the EU, it can be delivered safely in approximately 3-7 working days.
-          </p>
-          <p className="text-gray-700 mt-3">
-            Parcel Monkey collect all the relevant information in the booking process for Customs,
-            and these documents are sent to DPD using a paperless process, so if you need to send a
-            parcel overseas with DPD all you need to print out is the shipping label.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold text-purple-800 mb-3">
-            Drop off a parcel with DPD Pickup
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            Our DPD Pickup shops provide a handy alternative to having a parcel collected from your home or work.
-            Simply drop off your parcel at your nearest DPD Pickup store and your parcel will be delivered
-            within 1-2 working days.
-          </p>
-        </div>
+        {[{
+          title: "DPD courier services",
+          content: "DPD offer a reliable delivery service to destinations around the world, as well as an excellent UK domestic service. Handling 2 million parcels every day, they regularly top customer satisfaction surveys for their excellent services levels. If you want to reach customers, friends or family around the globe for less, then you can book DPD services at a discounted rate via Parcel Monkey. You'll still have access to their brilliant tracking tool, be able to add protection cover and choose from a range of collection and drop off services, including DPD Drop Off, DPD Classic and DPD Express.",
+          icon: <FaGlobe />
+        },{
+          title: "DPD UK delivery services",
+          content: "For those who need to send a parcel domestically within the UK, we offer discounted drop-off and collection services with DPD. Our DPD Pick Up service allows you to drop off your parcel at any DPD Pick Up point and will deliver your parcel in 1-2 days. DPD Next Day Collected includes a courier collection from your home or work address and will deliver your parcel the working day after collection.",
+          icon: <FaBoxOpen />
+        },{
+          title: "International shipping with DPD",
+          content: "DPD offer affordable delivery services out of the UK to international destinations. You can send your items to major destinations in Europe in 3-5 working days, whilst if you are sending a parcel out of the EU, it can be delivered safely in approximately 3-7 working days. Parcel Monkey collect all the relevant information in the booking process for Customs, and these documents are sent to DPD using a paperless process, so if you need to send a parcel overseas with DPD all you need to print out is the shipping label.",
+          icon: <FaGlobe />
+        },{
+          title: "Drop off a parcel with DPD Pickup",
+          content: "Our DPD Pickup shops provide a handy alternative to having a parcel collected from your home or work. Simply drop off your parcel at your nearest DPD Pickup store and your parcel will be delivered within 1-2 working days.",
+          icon: <FaMapMarkerAlt />
+        }].map((service) => (
+          <div key={service.title} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex gap-4">
+            <div className="text-purple-700 text-3xl">{service.icon}</div>
+            <div>
+              <h2 className="text-2xl font-bold text-purple-800 mb-3">{service.title}</h2>
+              <p className="text-gray-700 leading-relaxed">{service.content}</p>
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Customer Reviews */}
       <section className="px-6 md:px-20 py-10 bg-white">
         <h2 className="text-2xl font-bold text-purple-800 mb-6">Customer Reviews</h2>
 
-        <div className="space-y-6 text-gray-700">
-          <div className="p-6 rounded border shadow">
-            ⭐⭐⭐⭐⭐
-            <p className="mt-2">
-              Collected parcel on time and delivered well within stipulated days .. never any problems.
-            </p>
-          </div>
-
-          <div className="p-6 rounded border shadow">
-            ⭐⭐⭐⭐⭐
-            <p className="mt-2">
-              Prompt delivery no problems parcel left as requested with neighbour.
-            </p>
-          </div>
-
-          <div className="p-6 rounded border shadow">
-            ⭐⭐⭐⭐⭐
-            <p className="mt-2">
-              Very impressed with all the process. Posted at 3.40 pm. Delivered by 11.15 next day.
-              Can't argue with that!
-            </p>
-          </div>
+        <div className="grid md:grid-cols-3 gap-6 text-gray-700">
+          {[
+            "Collected parcel on time and delivered well within stipulated days .. never any problems.",
+            "Prompt delivery no problems parcel left as requested with neighbour.",
+            "Very impressed with all the process. Posted at 3.40 pm. Delivered by 11.15 next day. Can't argue with that!"
+          ].map((review, index) => (
+            <div key={index} className="p-6 rounded-xl border shadow hover:shadow-xl transition-shadow duration-300">
+              <div className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</div>
+              <p>{review}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>
