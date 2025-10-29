@@ -16,6 +16,10 @@ export default function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
+  // Convert text to URL slug
+  const slugify = (text: string) =>
+    `/services/${text.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
   // ✅ Close Services dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -121,7 +125,7 @@ export default function Navbar() {
                         "DeliveryApp",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href={item === "DPD" ? "/services/dpd" : "#"}>{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -157,7 +161,7 @@ export default function Navbar() {
                         "Yodel Direct Economy Drop Off",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -195,7 +199,7 @@ export default function Navbar() {
                         "Service updates",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -218,7 +222,7 @@ export default function Navbar() {
                         "Caribbean",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -267,7 +271,7 @@ export default function Navbar() {
                         "What is PrePay",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -299,7 +303,7 @@ export default function Navbar() {
                         "Chocolate",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
                     </ul>
