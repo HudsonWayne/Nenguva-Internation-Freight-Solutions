@@ -121,7 +121,7 @@ export default function Navbar() {
                         "DeliveryApp",
                       ].map((item) => (
                         <li key={item} className="hover:bg-gray-600 rounded px-2">
-                          <Link href="#">{item}</Link>
+                          <Link href={item === "DPD" ? "/services/dpd" : "#"}>{item}</Link>
                         </li>
                       ))}
                     </ul>
