@@ -163,6 +163,92 @@ export default function Dpd() {
           ))}
         </ul>
       </section>
+
+      {/* Added Screenshot Content */}
+      <section className="px-6 md:px-20 py-10 space-y-12">
+        <div>
+          <h2 className="text-2xl font-bold text-purple-800 mb-3">DPD courier services</h2>
+          <p className="text-gray-700 leading-relaxed">
+            DPD offer a reliable delivery service to destinations around the world,
+            as well as an excellent UK domestic service. Handling 2 million parcels every day,
+            they regularly top customer satisfaction surveys for their excellent services levels.
+          </p>
+          <p className="text-gray-700 mt-3">
+            If you want to reach customers, friends or family around the globe for less,
+            then you can book DPD services at a discounted rate via Parcel Monkey.
+            You'll still have access to their brilliant tracking tool, be able to add protection cover
+            and choose from a range of collection and drop off services, including
+            <span className="font-semibold"> DPD Drop Off, DPD Classic and DPD Express.</span>
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold text-purple-800 mb-3">DPD UK delivery services</h2>
+          <p className="text-gray-700 leading-relaxed">
+            For those who need to send a parcel domestically within the UK, we offer discounted
+            drop-off and collection services with DPD.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Our DPD Pick Up service allows you to drop off your parcel at any DPD Pick Up point and
+            will deliver your parcel in 1-2 days. DPD Next Day Collected includes a courier collection
+            from your home or work address and will deliver your parcel the working day after collection.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold text-purple-800 mb-3">International shipping with DPD</h2>
+          <p className="text-gray-700 leading-relaxed">
+            DPD offer affordable delivery services out of the UK to international destinations.
+            You can send your items to major destinations in Europe in 3-5 working days, whilst
+            if you are sending a parcel out of the EU, it can be delivered safely in approximately 3-7 working days.
+          </p>
+          <p className="text-gray-700 mt-3">
+            Parcel Monkey collect all the relevant information in the booking process for Customs,
+            and these documents are sent to DPD using a paperless process, so if you need to send a
+            parcel overseas with DPD all you need to print out is the shipping label.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold text-purple-800 mb-3">
+            Drop off a parcel with DPD Pickup
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Our DPD Pickup shops provide a handy alternative to having a parcel collected from your home or work.
+            Simply drop off your parcel at your nearest DPD Pickup store and your parcel will be delivered
+            within 1-2 working days.
+          </p>
+        </div>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="px-6 md:px-20 py-10 bg-white">
+        <h2 className="text-2xl font-bold text-purple-800 mb-6">Customer Reviews</h2>
+
+        <div className="space-y-6 text-gray-700">
+          <div className="p-6 rounded border shadow">
+            ⭐⭐⭐⭐⭐
+            <p className="mt-2">
+              Collected parcel on time and delivered well within stipulated days .. never any problems.
+            </p>
+          </div>
+
+          <div className="p-6 rounded border shadow">
+            ⭐⭐⭐⭐⭐
+            <p className="mt-2">
+              Prompt delivery no problems parcel left as requested with neighbour.
+            </p>
+          </div>
+
+          <div className="p-6 rounded border shadow">
+            ⭐⭐⭐⭐⭐
+            <p className="mt-2">
+              Very impressed with all the process. Posted at 3.40 pm. Delivered by 11.15 next day.
+              Can't argue with that!
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
