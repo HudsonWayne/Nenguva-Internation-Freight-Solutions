@@ -53,7 +53,7 @@ export default function Dpd() {
 
             <ul className="space-y-3 text-lg text-gray-700">
               {[
-                "Drop Off at any of the 2,500 DPD Pickup stores",
+                "Collected from your home or work between 8 am and 6 pm",
                 "Collected services available",
                 "Express delivery times",
                 "Send up to 20kg",
