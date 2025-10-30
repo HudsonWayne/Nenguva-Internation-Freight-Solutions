@@ -54,7 +54,7 @@ export default function Dpd() {
             <ul className="space-y-3 text-lg text-gray-700">
               {[
                 "Collected from your home or work between 8 am and 6 pm",
-                "Collected services available",
+                "Send parcels up to 25kg",
                 "Express delivery times",
                 "Send up to 20kg",
                 "DPD live tracking",
