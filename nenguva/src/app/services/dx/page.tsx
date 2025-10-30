@@ -58,7 +58,7 @@ export default function Dpd() {
                 "DX Freight for pallet deliveries ",
                 "Next day delivery",
                 "Fully tracked",
-                "Choose your delivery day/slot via the DPD App",
+                "GPS photographic records",
                 "FREE £20 loss/damage cover included",
                 "Optional protection cover available up to £1000",
               ].map((item) => (
