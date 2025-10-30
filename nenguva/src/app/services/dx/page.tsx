@@ -57,7 +57,7 @@ export default function Dpd() {
                 "Send parcels up to 25kg",
                 "DX Freight for pallet deliveries ",
                 "Next day delivery",
-                "DPD live tracking",
+                "Fully tracked",
                 "Choose your delivery day/slot via the DPD App",
                 "FREE £20 loss/damage cover included",
                 "Optional protection cover available up to £1000",
