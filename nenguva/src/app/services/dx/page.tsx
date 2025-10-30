@@ -59,8 +59,9 @@ export default function Dpd() {
                 "Next day delivery",
                 "Fully tracked",
                 "GPS photographic records",
-                "FREE £20 loss/damage cover included",
-                "Optional protection cover available up to £1000",
+                "FREE £20 loss/ damage cover included.",
+                "Optional additional cover up to £1,000",
+                "No printer required - driver brings the label ",
               ].map((item) => (
                 <li key={item} className="flex items-start">
                   <span className="text-green-600 text-xl mr-2">✔</span>
