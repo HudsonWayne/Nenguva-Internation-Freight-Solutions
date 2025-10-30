@@ -136,10 +136,10 @@ export default function Dpd() {
       {/* Action Buttons */}
       <div className="flex flex-col md:flex-row justify-center gap-6 px-6 md:px-20 pb-10">
         <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
-          <FaTruck /> Track your DPD delivery here
+          <FaTruck /> Track your DX delivery here
         </button>
         <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
-          <FaMapMarkerAlt /> DPD Drop Off Locations
+          <FaMapMarkerAlt /> DX Drop Off Locations
         </button>
       </div>
 
