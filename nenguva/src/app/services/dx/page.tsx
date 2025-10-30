@@ -56,7 +56,7 @@ export default function Dpd() {
                 "Collected from your home or work between 8 am and 6 pm",
                 "Send parcels up to 25kg",
                 "DX Freight for pallet deliveries ",
-                "Send up to 20kg",
+                "Next day delivery",
                 "DPD live tracking",
                 "Choose your delivery day/slot via the DPD App",
                 "FREE £20 loss/damage cover included",
