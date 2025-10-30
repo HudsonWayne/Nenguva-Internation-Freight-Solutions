@@ -33,13 +33,13 @@ export default function Dpd() {
       <nav className="text-sm text-gray-600 p-4 md:px-20">
         <Link href="/" className="hover:text-purple-700">Home</Link>{" "} &gt;{" "}
         <Link href="/services" className="hover:text-purple-700">Couriers</Link>{" "} &gt;{" "}
-        <span className="text-purple-700 font-medium">DPD</span>
+        <span className="text-purple-700 font-medium">DX</span>
       </nav>
 
       {/* Header */}
       <section className="px-6 md:px-20 py-10">
         <h1 className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-8">
-          Send a Parcel with <span className="text-green-600">DPD Courier</span>
+          DX Delivery - Affordable Next Day Courier Services
         </h1>
 
         <div className="grid md:grid-cols-2 gap-10">
