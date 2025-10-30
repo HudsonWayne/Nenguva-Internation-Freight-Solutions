@@ -83,13 +83,49 @@ export default function Dx() {
         </p>
       </section>
 
-      {/* Tracking */}
-      <section className="px-6 md:px-20 py-10">
-        <h2 className="text-2xl font-bold text-purple-800 mb-4">DX tracking</h2>
-        <p className="text-gray-700">
-          Even though you are placing the order for a DX Courier to come and collect your parcel
-          via Parcel Monkey, you can still track your shipment every step of the way.
+      {/* Tracking Section */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold text-purple-800 mb-6">DX tracking</h2>
+
+        <p className="text-gray-700 mb-4">
+          Even though you are placing the order for a DX Courier to come and collect your parcel via Parcel Monkey,
+          you can still get access to all the DX delivery tracking, allowing you to follow your parcel until it
+          arrives with the recipient.
         </p>
+
+        <p className="text-gray-700 mb-4">
+          You can <strong>track your parcel using the PM order number</strong> provided at the time of booking
+          from your Parcel Monkey account or via the Tracking tab on our homepage.
+        </p>
+
+        <Link href="#" className="text-purple-700 font-medium hover:underline">
+          Find out more about DX tracking
+        </Link>
+
+        {/* DX Delivery Times Box */}
+        <div className="mt-10 bg-purple-100 p-6 rounded-xl border border-purple-200 shadow-sm">
+          <h3 className="text-xl font-bold text-purple-800 mb-3">DX delivery times</h3>
+          <p className="text-gray-700 mb-4">
+            Delivery will be attempted within the Next Working Day after collection, making this an{" "}
+            <Link href="#" className="text-purple-700 font-medium hover:underline">expedited courier service</Link>.
+          </p>
+
+          <p className="text-gray-700 mb-4">
+            We cannot specify an exact time, but the DX courier will arrive between 8am and 6pm.
+            You will be able to provide the tracking number to the recipient so they can see when
+            the delivery is expected.
+          </p>
+
+          <h4 className="text-purple-800 font-semibold mb-2">
+            What happens if nobody is at home when the DX courier arrives to deliver the item?
+          </h4>
+          <p className="text-gray-700">
+            The DX courier will either try to post the item, deliver to one of your neighbours or
+            find a suitable place to leave it at your address. A calling card will be posted so you
+            know where to find the item or how to arrange redelivery if the DX courier has been
+            unable to deliver.
+          </p>
+        </div>
       </section>
 
       {/* Reviews */}
@@ -97,19 +133,34 @@ export default function Dx() {
         <h2 className="text-2xl font-bold text-purple-800 mb-6">Customer Reviews</h2>
 
         <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-          <div className="p-6 rounded-xl border shadow">
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
             <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
             Excellent service from Parcel Monkey
           </div>
 
-          <div className="p-6 rounded-xl border shadow">
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
             <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
-            Mostly good, but frustrating that in the address areas you can't put special symbols like - or /.
+            It wasn’t picked up on the promised date so was a day late. Apart from that the service was straightforward.
           </div>
 
-          <div className="p-6 rounded-xl border shadow">
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
             <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
-            That caused a lot of problems with collection and delivery
+            Very professional quick service that’s reasonably priced. Would recommend.
+          </div>
+
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            Bang on time. Bang on price.
+          </div>
+
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            They did exactly what they said they would and quicker than they advertised. A breath of fresh air!
+          </div>
+
+          <div className="p-6 rounded-xl border shadow hover:shadow-lg transition">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            Very reliable. Updated me on status of my parcel, driver was courteous and on time.
           </div>
         </div>
       </section>
