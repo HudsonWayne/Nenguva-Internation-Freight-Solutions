@@ -46,7 +46,7 @@ export default function Dpd() {
           {/* Left Side */}
           <div className="bg-white rounded-2xl p-8 shadow-2xl border border-purple-200 hover:scale-105 transition-transform duration-300">
             <h2 className="text-2xl font-semibold text-purple-800 mb-6">
-              Services from just{" "}
+              Services available from just{" "}
               <span className="text-green-600 text-3xl font-bold">£7.83</span>{" "}
               <span className="text-gray-500 text-base">exc VAT</span>
             </h2>
