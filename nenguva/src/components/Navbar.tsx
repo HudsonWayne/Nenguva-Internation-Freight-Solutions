@@ -124,7 +124,11 @@ export default function Navbar() {
                         "Evri",
                         "DeliveryApp",
                       ].map((item) => (
-                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                        <li
+                          key={item}
+                          className="hover:bg-gray-600 rounded px-2"
+                          onClick={() => setServicesOpen(false)}
+                        >
                           <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
@@ -160,7 +164,11 @@ export default function Navbar() {
                         "Parcelforce Global Priority",
                         "Yodel Direct Economy Drop Off",
                       ].map((item) => (
-                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                        <li
+                          key={item}
+                          className="hover:bg-gray-600 rounded px-2"
+                          onClick={() => setServicesOpen(false)}
+                        >
                           <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
@@ -198,7 +206,11 @@ export default function Navbar() {
                         "Motorbike courier service",
                         "Service updates",
                       ].map((item) => (
-                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                        <li
+                          key={item}
+                          className="hover:bg-gray-600 rounded px-2"
+                          onClick={() => setServicesOpen(false)}
+                        >
                           <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
@@ -221,7 +233,11 @@ export default function Navbar() {
                         "Oceania",
                         "Caribbean",
                       ].map((item) => (
-                        <li key={item} className="hover:bg-gray-600 rounded px-2">
+                        <li
+                          key={item}
+                          className="hover:bg-gray-600 rounded px-2"
+                          onClick={() => setServicesOpen(false)}
+                        >
                           <Link href={slugify(item)}>{item}</Link>
                         </li>
                       ))}
@@ -231,7 +247,7 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* Guides Dropdown (Hover) */}
+            {/* Guides Dropdown */}
             <li
               className="relative"
               onMouseEnter={() => setGuidesOpen(true)}
