@@ -1,32 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FaTruck, FaGlobe, FaBoxOpen, FaMapMarkerAlt } from "react-icons/fa";
 
-export default function Dpd() {
-  const countries = [
-    "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua & Barbuda","Argentina","Armenia","Australia","Austria",
-    "Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan",
-    "Bolivia","Bosnia & Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia",
-    "Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica",
-    "Croatia","Cuba","Cyprus","Czech Republic","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador",
-    "Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France",
-    "Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau",
-    "Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
-    "Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait",
-    "Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg",
-    "Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico",
-    "Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru",
-    "Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman",
-    "Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal",
-    "Qatar","Romania","Russia","Rwanda","Saint Kitts & Nevis","Saint Lucia","Saint Vincent & the Grenadines","Samoa","San Marino","Sao Tome & Principe",
-    "Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia",
-    "South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria",
-    "Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey",
-    "Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu",
-    "Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
-  ];
-
+export default function Dx() {
   return (
     <main className="bg-gradient-to-b from-purple-50 to-white text-gray-900 min-h-screen">
       {/* Breadcrumb */}
@@ -38,177 +14,103 @@ export default function Dpd() {
 
       {/* Header */}
       <section className="px-6 md:px-20 py-10">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-8">
-          DX Delivery - Affordable Next Day Courier Services
+        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-6">
+          DX delivery services
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Left Side */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl border border-purple-200 hover:scale-105 transition-transform duration-300">
-            <h2 className="text-2xl font-semibold text-purple-800 mb-6">
-              Services available from just{" "}
-              <span className="text-green-600 text-3xl font-bold">£8.99 </span>{" "}
-              <span className="text-gray-500 text-base">exc VAT</span>
-            </h2>
+        <p className="text-gray-700 leading-relaxed mb-8">
+          For customers looking to save money on UK parcel delivery and UK freight services,
+          booking a DX delivery via Parcel Monkey is the ideal solution. You can book a courier
+          collection from your home or work address and have your parcel or freight delivered
+          the very next day, all for a discounted price.
+        </p>
 
-            <ul className="space-y-3 text-lg text-gray-700">
-              {[
-                "Collected from your home or work between 8 am and 6 pm",
-                "Send parcels up to 25kg",
-                "DX Freight for pallet deliveries ",
-                "Next day delivery",
-                "Fully tracked",
-                "GPS photographic records",
-                "FREE £20 loss/ damage cover included.",
-                "Optional additional cover up to £1,000",
-                "No printer required - driver brings the label ",
-              ].map((item) => (
-                <li key={item} className="flex items-start">
-                  <span className="text-green-600 text-xl mr-2">✔</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <h2 className="text-2xl font-bold text-purple-800 mb-4">
+          We offer two great DX delivery services:
+        </h2>
+
+        <ul className="list-disc ml-6 text-gray-700 space-y-2">
+          <li><strong>DX Next Day</strong> – for parcels up to 25kg</li>
+          <li><strong>DX Freight</strong> – a next day service for palletised items over 25kg</li>
+        </ul>
+
+        <p className="mt-4 text-red-600 font-medium">
+          Please note DX Freight is not a two-man delivery service. It will be one driver for
+          collection and delivery so you may need to assist the driver with heavy goods.
+        </p>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="px-6 md:px-20 mb-10">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-200">
+            <h3 className="text-xl font-bold text-purple-800">DX Next Day</h3>
+            <p className="mt-2 text-gray-600">From only: £8.99 exc VAT</p>
           </div>
 
-          {/* Right Side Quote Box */}
-          <div className="bg-purple-900 text-white rounded-2xl p-8 shadow-2xl hover:scale-105 transition-transform duration-300">
-            <div className="flex justify-between mb-6">
-              <button className="text-lg font-semibold border-b-2 border-green-400 pb-1">
-                Parcel Delivery
-              </button>
-              <button className="text-lg font-semibold opacity-70">
-                ParcelMonkey<span className="text-green-400"> Local</span>
-              </button>
-            </div>
-
-            <h2 className="text-xl font-semibold mb-4">Get an Instant Quote</h2>
-
-            <form className="space-y-4">
-              <div>
-                <label className="block mb-2 text-sm">Collect from</label>
-                <select className="w-full p-2 text-black rounded shadow-inner">
-                  {countries.map((country) => (
-                    <option key={country}>{country}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block mb-2 text-sm">Delivering to</label>
-                <select className="w-full p-2 text-black rounded shadow-inner">
-                  {countries.map((country) => (
-                    <option key={country}>{country}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block mb-2 text-sm">Parcel Weight</label>
-                <div className="flex">
-                  <input
-                    type="number"
-                    placeholder="Enter weight"
-                    className="flex-grow p-2 text-black rounded-l border border-gray-300"
-                  />
-                  <span className="bg-purple-700 px-3 flex items-center rounded-r text-white font-semibold">
-                    Kg
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-purple-900 font-bold py-3 rounded mt-6 shadow-lg transition-colors duration-300"
-              >
-                Get Quote & Book
-              </button>
-            </form>
-
-            <div className="mt-6 text-sm space-y-2 text-purple-200">
-              <p>📦 Send multiple parcels</p>
-              <p>📏 Parcel larger than 1m?</p>
-            </div>
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-200">
+            <h3 className="text-xl font-bold text-purple-800">DX Freight Next Day</h3>
+            <p className="mt-2 text-gray-600">From only: £45.11 exc VAT</p>
           </div>
         </div>
       </section>
 
-      {/* Action Buttons */}
-      <div className="flex flex-col md:flex-row justify-center gap-6 px-6 md:px-20 pb-10">
-        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
-          <FaTruck /> Track your DX delivery here
-        </button>
-        <button className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-semibold py-3 px-8 rounded shadow-md transition-transform transform hover:scale-105 flex items-center gap-2 justify-center">
-          <FaMapMarkerAlt /> DX Drop Off Locations
-        </button>
-      </div>
+      {/* Book Section */}
+      <section className="px-6 md:px-20 py-10 bg-purple-50 rounded-t-3xl">
+        <h2 className="text-3xl font-bold text-purple-800 mb-6">Book a DX courier</h2>
 
-      {/* Quick Links */}
-      <section className="bg-yellow-50 px-6 md:px-20 py-10 rounded-t-3xl">
-        <h3 className="text-xl font-semibold mb-4 text-purple-800">Quick Links</h3>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-purple-800 underline">
-          {[
-            "About DPD",
-            "DPD UK delivery services",
-            "DPD international shipping",
-            "DPD drop off services",
-            "DPD track and trace",
-            "DPD restrictions",
-            "DPD delivery times",
-          ].map((link) => (
-            <li key={link}>
-              <Link href="#" className="hover:text-purple-600 transition-colors duration-200">
-                {link}
-              </Link>
-            </li>
-          ))}
+        <p className="text-gray-700 leading-relaxed mb-6">
+          Booking a DX courier through Parcel Monkey is easy. Just follow these simple steps to
+          get an instant quote and book:
+        </p>
+
+        <ul className="list-disc ml-6 text-gray-700 space-y-2">
+          <li>Package your item.</li>
+          <li>Weigh and measure your packaged item.</li>
+          <li>Enter the dimensions and weight into our courier quote tool.</li>
+          <li>Select the DX delivery service you require and book.</li>
+          <li>Confirm your collection and delivery address and select a collection date.</li>
+          <li>Declare the contents and value of your item. Select any additional protection cover required (up to £1000).</li>
+          <li>Confirm and book, then pay for your service.</li>
         </ul>
+
+        <p className="mt-6 text-gray-700">
+          A DX courier will arrive on the day of your choice, with a delivery address label to be
+          attached to the box (ideal for customers who don't have a printer). Please check the
+          delivery address on the label is correct. The DX driver will then request a signature
+          confirming collection. From here your item will be taken to a DX Depot, sorted and
+          dispatched to be delivered the Next Day - simple!
+        </p>
       </section>
 
-      {/* Services Info */}
-      <section className="px-6 md:px-20 py-10 space-y-12">
-        {[{
-          title: "DPD courier services",
-          content: "DPD offer a reliable delivery service to destinations around the world, as well as an excellent UK domestic service. Handling 2 million parcels every day, they regularly top customer satisfaction surveys for their excellent services levels. If you want to reach customers, friends or family around the globe for less, then you can book DPD services at a discounted rate via Parcel Monkey. You'll still have access to their brilliant tracking tool, be able to add protection cover and choose from a range of collection and drop off services, including DPD Drop Off, DPD Classic and DPD Express.",
-          icon: <FaGlobe />
-        },{
-          title: "DPD UK delivery services",
-          content: "For those who need to send a parcel domestically within the UK, we offer discounted drop-off and collection services with DPD. Our DPD Pick Up service allows you to drop off your parcel at any DPD Pick Up point and will deliver your parcel in 1-2 days. DPD Next Day Collected includes a courier collection from your home or work address and will deliver your parcel the working day after collection.",
-          icon: <FaBoxOpen />
-        },{
-          title: "International shipping with DPD",
-          content: "DPD offer affordable delivery services out of the UK to international destinations. You can send your items to major destinations in Europe in 3-5 working days, whilst if you are sending a parcel out of the EU, it can be delivered safely in approximately 3-7 working days. Parcel Monkey collect all the relevant information in the booking process for Customs, and these documents are sent to DPD using a paperless process, so if you need to send a parcel overseas with DPD all you need to print out is the shipping label.",
-          icon: <FaGlobe />
-        },{
-          title: "Drop off a parcel with DPD Pickup",
-          content: "Our DPD Pickup shops provide a handy alternative to having a parcel collected from your home or work. Simply drop off your parcel at your nearest DPD Pickup store and your parcel will be delivered within 1-2 working days.",
-          icon: <FaMapMarkerAlt />
-        }].map((service) => (
-          <div key={service.title} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex gap-4">
-            <div className="text-purple-700 text-3xl">{service.icon}</div>
-            <div>
-              <h2 className="text-2xl font-bold text-purple-800 mb-3">{service.title}</h2>
-              <p className="text-gray-700 leading-relaxed">{service.content}</p>
-            </div>
-          </div>
-        ))}
+      {/* Tracking */}
+      <section className="px-6 md:px-20 py-10">
+        <h2 className="text-2xl font-bold text-purple-800 mb-4">DX tracking</h2>
+        <p className="text-gray-700">
+          Even though you are placing the order for a DX Courier to come and collect your parcel
+          via Parcel Monkey, you can still track your shipment every step of the way.
+        </p>
       </section>
 
-      {/* Customer Reviews */}
+      {/* Reviews */}
       <section className="px-6 md:px-20 py-10 bg-white">
         <h2 className="text-2xl font-bold text-purple-800 mb-6">Customer Reviews</h2>
 
-        <div className="grid md:grid-cols-3 gap-6 text-gray-700">
-          {[
-            "Collected parcel on time and delivered well within stipulated days .. never any problems.",
-            "Prompt delivery no problems parcel left as requested with neighbour.",
-            "Very impressed with all the process. Posted at 3.40 pm. Delivered by 11.15 next day. Can't argue with that!"
-          ].map((review, index) => (
-            <div key={index} className="p-6 rounded-xl border shadow hover:shadow-xl transition-shadow duration-300">
-              <div className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</div>
-              <p>{review}</p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+          <div className="p-6 rounded-xl border shadow">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            Excellent service from Parcel Monkey
+          </div>
+
+          <div className="p-6 rounded-xl border shadow">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            Mostly good, but frustrating that in the address areas you can't put special symbols like - or /.
+          </div>
+
+          <div className="p-6 rounded-xl border shadow">
+            <p className="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+            That caused a lot of problems with collection and delivery
+          </div>
         </div>
       </section>
     </main>
