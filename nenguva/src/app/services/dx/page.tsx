@@ -55,7 +55,7 @@ export default function Dpd() {
               {[
                 "Collected from your home or work between 8 am and 6 pm",
                 "Send parcels up to 25kg",
-                "Express delivery times",
+                "DX Freight for pallet deliveries ",
                 "Send up to 20kg",
                 "DPD live tracking",
                 "Choose your delivery day/slot via the DPD App",
